@@ -864,7 +864,7 @@ function initUST(){
   var n=words.length;
   var cont=document.getElementById('ustText'),bar=document.getElementById('ustBar');
   words.forEach(function(w,i){var sp=document.createElement('span');sp.className='ust-w';sp.id='uw'+i;sp.textContent=w+' ';cont.appendChild(sp);});
-  ScrollTrigger.create({trigger:'#ust',start:'top top',end:'top+=20% top',onUpdate:function(self){
+  ScrollTrigger.create({trigger:'#ust',start:'top centre',end:'top+=20% top',onUpdate:function(self){
     bar.style.width=(self.progress*100)+'%';
     words.forEach(function(_,i){
       var el=document.getElementById('uw'+i);if(!el)return;
