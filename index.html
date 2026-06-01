@@ -1471,7 +1471,7 @@ function initPremiumAnimations(){
     setInterval(function(){
       v=Math.max(0,v-4);
       var spd=Math.round(base-v*.12);
-      tracks.forEach(function(t){t.style.animationDuration=Math.max(8,spd)+'s';});
+      var s=Math.max(8,spd)+'s';tracks.forEach(function(t){if(t.style.animationDuration!==s)t.style.animationDuration=s;});
     },60);
   })();
 
