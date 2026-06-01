@@ -1179,7 +1179,7 @@ function initUST(){
     ScrollTrigger.create({
       trigger:'#ust',
       start:'top-=25% top',   /* section top enters viewport bottom → p=0 */
-      end:'top+=70% top',        /* section top reaches viewport top   → p=1 */
+      end:'top+=50% top',        /* section top reaches viewport top   → p=1 */
       scrub:true,           /* 1:1 scroll ↔ glow, instant response       */
       onUpdate:function(self){paint(self.progress);},
       onLeave:function(){settle();},      /* past viewport: all settled  */
