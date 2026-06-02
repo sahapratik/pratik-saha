@@ -120,11 +120,10 @@ body.cview #cd{opacity:0}
 .h-orb{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.052) 0%,transparent 70%);filter:blur(60px);z-index:1}
 #hero-cvs{position:absolute;inset:0;z-index:0;width:100%;height:100%}
 .mq-bar{overflow:hidden;padding:14px 0;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);background:var(--s1)}
-.mq-t{display:flex;gap:56px;animation:mqR 28s linear infinite;width:max-content}
-.mq-t:hover{animation-play-state:paused}
+.mq-t{display:flex;gap:56px;width:max-content;will-change:transform}
+.mq-t:hover{cursor:default}
 .mq-i{display:flex;align-items:center;gap:16px;font-size:.55rem;font-weight:700;letter-spacing:.36em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
 .mq-d{width:3px;height:3px;border-radius:50%;background:var(--mid);flex-shrink:0}
-@keyframes mqR{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .sec{padding:130px 60px}
 .sec-tag{display:inline-flex;align-items:center;gap:12px;font-size:.6rem;font-weight:800;letter-spacing:.38em;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
 .sec-tag::before{content:'';width:20px;height:1px;background:var(--mid)}
@@ -139,12 +138,14 @@ body.cview #cd{opacity:0}
 .gsh{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.04) 50%,transparent 60%);transform:translateX(-200%);transition:transform .9s var(--e1);pointer-events:none}
 .glass:hover .gsh{transform:translateX(250%)}
 #ust{position:relative;background:var(--bk)}
-.ust-sticky{height:100vh;display:flex;align-items:center;padding:0 clamp(28px,5vw,80px);overflow:hidden}
+.ust-sticky{height:100vh;display:flex;align-items:center;padding:0 clamp(28px,5vw,80px);overflow:hidden;position:relative}
 .ust-text{font-size:clamp(2.8rem,7.2vw,9.2rem);font-weight:900;letter-spacing:-.05em;line-height:1.22;color:#fff;user-select:none;white-space:nowrap}
 .ust-w{display:none}
 /* ─ UST : no CSS transition – JS sets opacity directly each frame ─ */
 .ust-c{display:inline;opacity:.04;will-change:opacity;backface-visibility:hidden}
 .ust-space{display:inline-block;width:.22em}
+.ust-lbl{position:absolute;bottom:28px;left:clamp(28px,5vw,80px);font-size:.52rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);pointer-events:none;user-select:none}
+.ust-bar{position:absolute;bottom:0;left:0;width:0%;height:2px;background:rgba(255,255,255,.28);pointer-events:none;transform-origin:left}
 
 /* ══ PREMIUM ANIMATIONS LIBRARY ══ */
 /* Clip-path slide-up reveal (stronger than plain rv) */
@@ -163,7 +164,7 @@ body.cview #cd{opacity:0}
 .rv.in .wm-inner.d4{transition-delay:.46s}
 
 /* Horizontal wipe-in for lines */
-@keyframes lineWipe{from{scaleX:0;transform-origin:left}to{scaleX:1;transform-origin:left}}
+@keyframes lineWipe{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
 .line-wipe{transform:scaleX(0);transform-origin:left}
 .line-wipe.in{animation:lineWipe .9s cubic-bezier(.22,1,.36,1) forwards}
 
@@ -203,9 +204,7 @@ body.cview #cd{opacity:0}
 .par-wrap{overflow:hidden;position:relative}
 .par-wrap img{transform:scale(1.18);will-change:transform;display:block;width:100%;height:100%;object-fit:cover}
 
-/* Cursor label updates */
-.design-cell[data-view]:hover~body #cl,
-.photo-cell[data-view]:hover~body #cl{content:attr(data-view)}
+/* Cursor label is updated via JS */
 
 /* Glowing dot pulse */
 @keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0),0 0 18px rgba(255,255,255,.4)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0),0 0 30px rgba(255,255,255,.7)}}
@@ -218,9 +217,6 @@ body.cview #cd{opacity:0}
 
 /* Section seam */
 .seam{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04) 20%,rgba(255,255,255,.12) 50%,rgba(255,255,255,.04) 80%,transparent);margin:0 60px;transform:scaleX(0);transform-origin:left;will-change:transform}
-
-/* Marquee hover-to-pause */
-.mq-t:hover{animation-play-state:paused;cursor:default}
 
 /* Nav active line */
 .n-a.on::after{transform:scaleX(1)}
@@ -272,6 +268,7 @@ body.cview #cd{opacity:0}
 .photo-cell.f2{grid-column:span 2}
 .photo-fig{width:100%;overflow:hidden;position:relative}
 .photo-fig img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.06);transition:transform 1.3s var(--e1);will-change:transform}
+.photo-cell.revealed{opacity:1;transform:none}
 .photo-cell.revealed .photo-fig img{transform:scale(1)}
 .photo-cell.revealed:hover .photo-fig img{transform:scale(1.06)}
 .photo-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.95) 0%,rgba(5,5,5,.4) 35%,transparent 65%);opacity:0;transition:opacity .55s}
@@ -348,7 +345,7 @@ body.cview #cd{opacity:0}
 .cc-stage:active{cursor:grabbing}
 .cc-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d}
 .cc-item{position:absolute;top:50%;left:50%;transform-style:preserve-3d;transition:all .75s var(--e1);backface-visibility:hidden}
-.cc-card{width:100%;height:100%;border:1px solid rgba(255,255,255,.08);overflow:hidden;background:var(--s2);border-radius:10px;transition:border-color .5s,box-shadow .5s;display:flex;flex-direction:column}
+.cc-card{width:100%;height:100%;border:1px solid rgba(255,255,255,.08);overflow:hidden;background:var(--s2);border-radius:10px;transition:border-color .5s,box-shadow .5s;display:flex;flex-direction:column;position:relative}
 .cc-card:hover{border-color:rgba(255,255,255,.18);box-shadow:0 28px 56px -12px rgba(0,0,0,.8)}
 .cc-fig{width:100%;overflow:hidden;background:var(--s3);flex:1;min-height:0}
 .cc-fig img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--e1);display:block}
@@ -493,11 +490,13 @@ body.cview #cd{opacity:0}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.18);opacity:0}}
 @keyframes dotGlow{0%,100%{box-shadow:0 0 18px rgba(255,255,255,.45)}50%{box-shadow:0 0 32px rgba(255,255,255,.75),0 0 54px rgba(255,255,255,.25)}}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* Scroll-linked clip reveal */
 .rv-clip{opacity:0;clip-path:inset(0 0 100% 0);transition:opacity .01s,clip-path .88s var(--e3)}
 .rv-clip.in{opacity:1;clip-path:inset(0 0 0% 0)}
 
 footer{padding:40px 60px;border-top:1px solid var(--ln);background:var(--bk);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;position:relative;overflow:hidden}
+.dot-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 70% 70% at 100% 0%,black 30%,transparent 100%);pointer-events:none;user-select:none;z-index:0}
+.sec-num{position:absolute;top:40px;right:48px;font-size:clamp(5rem,14vw,16rem);font-weight:900;letter-spacing:-.06em;color:rgba(255,255,255,.018);pointer-events:none;user-select:none;line-height:1;z-index:0;opacity:0}
 footer::before{content:"PS";position:absolute;right:-2%;bottom:-18%;font-size:21vw;font-weight:900;letter-spacing:-.06em;color:rgba(255,255,255,.014);pointer-events:none;user-select:none;line-height:1;z-index:0}
 footer>*{position:relative;z-index:1}
 .ft-l{font-size:.72rem;font-weight:900;letter-spacing:.12em;color:#fff;white-space:nowrap}
@@ -519,7 +518,7 @@ footer>*{position:relative;z-index:1}
 a:focus-visible,button:focus-visible{outline:2px solid rgba(255,255,255,.5);outline-offset:3px}
 input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3);outline-offset:0}
 @media(max-width:1200px){
-  .sec{padding:100px 48px}#hero{padding:0 48px 80px}.hr{margin:0 48px}#nav{padding:22px 48px}#nav.sc{padding:14px 48px}
+  .sec{padding:100px 48px}#hero{padding:0 48px 80px}.hr{margin:0 48px}.seam{margin:0 48px}#nav{padding:22px 48px}#nav.sc{padding:14px 48px}
   footer{padding:32px 48px}.ust-sticky{padding:0 48px}.ust-lbl{left:48px}
   .lb-wrap{grid-template-columns:1fr;max-height:94vh;overflow-y:auto}.lb-imgw{min-height:240px}
   .lb-side{border-left:none;border-top:1px solid rgba(255,255,255,.06)}
@@ -538,7 +537,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   .f-send{width:100%;text-align:center}
   .f-result{flex-direction:column;gap:10px}
   #nav{padding:18px 20px}#nav.sc{padding:14px 20px}.n-ul,.n-cta{display:none!important}.n-ham{display:flex!important}
-  #hero{padding:0 20px 72px;min-height:100svh}.sec{padding:72px 20px}.hr{margin:0 20px}
+  #hero{padding:0 20px 72px;min-height:100svh}.sec{padding:72px 20px}.hr{margin:0 20px}.seam{margin:0 20px}
   .ust-sticky{padding:0 20px;height:100svh}.ust-lbl{left:20px;bottom:24px}.ust-text{font-size:clamp(1.6rem,6vw,3rem)}
   footer{padding:28px 20px;gap:10px}.h-spacer{min-height:60px}
   .h-avail{font-size:.5rem;padding:6px 12px;margin-bottom:20px}
@@ -573,7 +572,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   .about-glass{padding:20px!important}.photo-strip-wrap::before,.photo-strip-wrap::after{width:60px}
 }
 @media(max-width:480px){
-  #nav{padding:16px}.sec{padding:60px 16px}.hr{margin:0 16px}footer{padding:24px 16px}
+  #nav{padding:16px}.sec{padding:60px 16px}.hr{margin:0 16px}.seam{margin:0 16px}footer{padding:24px 16px}
   #hero{padding:0 16px 60px}#photography,#design{padding:60px 16px}.sec-bridge{padding:0 16px}
   .h-spacer{min-height:40px}.h-title{font-size:clamp(2.8rem,14vw,5rem)}
   .sec-h{font-size:clamp(2rem,8vw,3.2rem)!important}
@@ -585,7 +584,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
 }
 @media(max-width:360px){
   #hero{padding:0 14px 52px}.h-title{font-size:clamp(2.4rem,13vw,4.5rem)}
-  .sec{padding:52px 14px}.hr{margin:0 14px}#nav{padding:14px}footer{padding:20px 14px}
+  .sec{padding:52px 14px}.hr{margin:0 14px}.seam{margin:0 14px}#nav{padding:14px}footer{padding:20px 14px}
 }
 @media(hover:none){body{cursor:auto}#cd,#cr,#cl{display:none!important}.ls-logo{opacity:.38}.photo-meta{opacity:1;transform:none}.photo-ov{opacity:1}.photo-open{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.ls-track,.mq-t,.photo-strip-track{animation:none!important}}
@@ -610,13 +609,13 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   <div class="pl-pct" id="plN">0%</div>
 </div>
 <div id="mob" role="dialog" aria-label="Navigation menu" aria-modal="true">
-  <a href="#about"       class="mob-a" onclick="closeMob()">About</a>
-  <a href="#photography" class="mob-a" onclick="closeMob()">Photography</a>
-  <a href="#design"      class="mob-a" onclick="closeMob()">Design</a>
-  <a href="#exp"         class="mob-a" onclick="closeMob()">Journey</a>
-  <a href="#skills"      class="mob-a" onclick="closeMob()">Skills</a>
-  <a href="#recog"       class="mob-a" onclick="closeMob()">Recognition</a>
-  <a href="#contact"     class="mob-a" onclick="closeMob()">Contact</a>
+  <a href="#about"       class="mob-a">About</a>
+  <a href="#photography" class="mob-a">Photography</a>
+  <a href="#design"      class="mob-a">Design</a>
+  <a href="#exp"         class="mob-a">Journey</a>
+  <a href="#skills"      class="mob-a">Skills</a>
+  <a href="#recog"       class="mob-a">Recognition</a>
+  <a href="#contact"     class="mob-a">Contact</a>
 </div>
 <nav id="nav">
   <a href="#hero" class="n-logo"><div class="n-badge">PS</div>PRATIK SAHA</a>
@@ -690,6 +689,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   </div>
 </section>
 <div class="hr"></div>
+<div class="seam"></div>
 <section id="about" class="sec" style="background:var(--s1);position:relative;overflow:hidden">
   <div class="dot-grid" aria-hidden="true"></div>
   <div class="sec-num" aria-hidden="true">01</div>
@@ -729,6 +729,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   </div>
 </section>
 <div class="hr"></div>
+<div class="seam"></div>
 <section id="exp" class="sec" style="background:var(--bk);overflow:hidden">
   <span class="sec-tag rv">Journey &amp; Archive</span>
   <h2 class="sec-h rv d1">BUILT THROUGH<br/><em>ACTION.</em></h2>
@@ -792,6 +793,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   <div class="cc-dots rv d3" id="ccDots"></div>
 </section>
 <div class="hr"></div>
+<div class="seam"></div>
 <section id="skills" class="sec" style="background:var(--s1)">
   <span class="sec-tag rv">Capabilities</span>
   <h2 class="sec-h rv d1">THE FULL<br/><em>SPECTRUM.</em></h2>
@@ -835,6 +837,7 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   </div>
 </section>
 <div class="hr"></div>
+<div class="seam"></div>
 <section id="contact" class="sec" style="background:var(--bk)">
   <!-- Animated ambient background -->
   <div class="ct-ambient" aria-hidden="true">
@@ -983,7 +986,7 @@ var DESIGN_DATA=GD.filter(function(d){return d.cat==='branding';});
   var W=0,H=0,pts=[],mx=0,my=0;
   function resize(){W=cvs.width=cvs.offsetWidth;H=cvs.height=cvs.offsetHeight;}
   resize();window.addEventListener('resize',resize,{passive:true});
-  for(var i=0;i<55;i++)pts.push({x:Math.random()*3000,y:Math.random()*2000,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.2+.3,o:Math.random()*.28+.05});
+  for(var i=0;i<55;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.2+.3,o:Math.random()*.28+.05});
   document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
   function tick(){
     ctx.clearRect(0,0,W,H);
@@ -1010,7 +1013,7 @@ var DESIGN_DATA=GD.filter(function(d){return d.cat==='branding';});
 })();
 /* LENIS */
 var lenis=null;
-try{lenis=new Lenis({duration:1.4,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},orientation:'vertical',smoothWheel:true,touchMultiplier:2});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);}catch(e){}
+try{lenis=new Lenis({duration:1.4,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},orientation:'vertical',smoothWheel:true,touchMultiplier:2});requestAnimationFrame(function raf(t){lenis.raf(t);requestAnimationFrame(raf);});}catch(e){}
 /* LIGHTBOX */
 var _lbData=[],_lbIdx=0;
 function openLB(idx,data){_lbData=data;_lbIdx=idx;renderLB();document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';if(lenis)lenis.stop();}
@@ -1462,17 +1465,47 @@ function initPremiumAnimations(){
     })();
   })();
 
-  /* ── 22. MARQUEE SCROLL VELOCITY ── */
+  /* ── 22. MARQUEE — RAF DRIVER (replaces CSS animation; no jump on scroll) ── */
   (function(){
-    var base=38,v=0;
-    var tracks=document.querySelectorAll('.mq-t');
-    if(!tracks.length)return;
-    window.addEventListener('scroll',function(){v=Math.min(Math.abs(window.scrollY-(window.__lastY||0))*3,180);window.__lastY=window.scrollY;},{passive:true});
-    setInterval(function(){
-      v=Math.max(0,v-4);
-      var spd=Math.round(base-v*.12);
-      var s=Math.max(8,spd)+'s';tracks.forEach(function(t){if(t.style.animationDuration!==s)t.style.animationDuration=s;});
-    },60);
+    var track=document.getElementById('mqT');
+    if(!track)return;
+    /* Respect reduced-motion preference */
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+
+    var pos=0,vel=0,halfW=0,lastY=window.scrollY,lastTS=null,paused=false;
+
+    /* Measure after fonts/layout settle */
+    function measure(){halfW=track.scrollWidth/2;}
+    setTimeout(measure,120);
+    window.addEventListener('resize',function(){setTimeout(measure,150);},{passive:true});
+
+    /* Hover pause on the bar container */
+    var bar=track.parentElement;
+    if(bar){
+      bar.addEventListener('mouseenter',function(){paused=true;});
+      bar.addEventListener('mouseleave',function(){paused=false;});
+    }
+
+    /* Boost velocity on scroll — decays naturally each frame */
+    window.addEventListener('scroll',function(){
+      var delta=Math.abs(window.scrollY-lastY);
+      lastY=window.scrollY;
+      vel=Math.min(vel+delta*0.1,4.5);
+    },{passive:true});
+
+    function tick(ts){
+      if(lastTS!==null&&!paused&&halfW>0){
+        var dt=Math.min(ts-lastTS,50);          /* cap dt so tab-switch doesn't teleport */
+        vel=Math.max(0,vel-0.05*dt);            /* smooth decay */
+        var spd=(halfW/28000+vel*0.018)*dt;     /* base pace = 28 s loop + boost */
+        pos-=spd;
+        if(pos<=-halfW)pos+=halfW;              /* seamless wrap */
+        track.style.transform='translateX('+pos+'px)';
+      }
+      lastTS=ts;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   })();
 
   /* ── 23. HERO AVAILABLE TAG glow pulse ── */
