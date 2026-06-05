@@ -570,6 +570,8 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   .f-send{width:100%;text-align:center;padding:16px 20px}.ct-lnk{font-size:.82rem}
   .sk-panel{width:100%}.sk-p{font-size:.78rem}.ab-quote{font-size:clamp(1.2rem,4.5vw,1.9rem)!important}
   .about-glass{padding:20px!important}.photo-strip-wrap::before,.photo-strip-wrap::after{width:60px}
+  /* Canvas touch performance — reduce streams on mobile */
+  #hero-cvs{image-rendering:auto}
 }
 @media(max-width:480px){
   #nav{padding:16px}.sec{padding:60px 16px}.hr{margin:0 16px}.seam{margin:0 16px}footer{padding:24px 16px}
@@ -588,7 +590,47 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
 }
 @media(hover:none){body{cursor:auto}#cd,#cr,#cl{display:none!important}.ls-logo{opacity:.38}.photo-meta{opacity:1;transform:none}.photo-ov{opacity:1}.photo-open{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.ls-track,.mq-t,.photo-strip-track{animation:none!important}}
-</style>
+
+/* ══ PREMIUM HERO DEPTH FLOATING LAYER ══ */
+.h-depth-layer{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;will-change:transform}
+.h-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.075);animation:hRingBreathe var(--dur,5.5s) var(--del,0s) ease-in-out infinite}
+.h-ring::after{content:'';position:absolute;inset:10px;border-radius:50%;border:1px solid rgba(255,255,255,.03)}
+@keyframes hRingBreathe{0%,100%{opacity:.42;box-shadow:none}50%{opacity:.92;box-shadow:0 0 30px 4px rgba(255,255,255,.036),0 0 60px 12px rgba(255,255,255,.012)}}
+.h-cross{position:absolute;width:13px;height:13px;opacity:.2}
+.h-cross::before,.h-cross::after{content:'';position:absolute;background:#fff}
+.h-cross::before{left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%)}
+.h-cross::after{top:50%;left:0;right:0;height:1px;transform:translateY(-50%)}
+.h-fnode{position:absolute;display:flex;align-items:center;gap:8px;animation:hNodeDrift var(--nd,8s) var(--ndel,0s) ease-in-out infinite;opacity:0}
+@keyframes hNodeDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.h-fnode-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.52);flex-shrink:0;box-shadow:0 0 8px rgba(255,255,255,.2)}
+.h-fnode-lbl{font-family:'Hanken Grotesk',sans-serif;font-size:.39rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);background:rgba(5,5,5,.76);border:1px solid rgba(255,255,255,.075);padding:5px 11px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);white-space:nowrap}
+.h-badge{position:absolute;background:rgba(5,5,5,.7);border:1px solid rgba(255,255,255,.08);padding:12px 16px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0}
+.h-badge span{display:block;font-family:'Hanken Grotesk',sans-serif}
+.h-badge-t{font-size:.38rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:4px}
+.h-badge-v{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.44)}
+.h-dln{position:absolute;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent);opacity:0}
+@media(max-width:900px){.h-depth-layer{display:none!important}}
+
+/* ══ EXTRA PREMIUM ANIMATIONS ══ */
+/* HR dividers: start collapsed, JS wipes them in */
+.hr{transform:scaleX(0);transform-origin:left}
+/* Cursor: no transition on transform so velocity morph is instant */
+#cr{transition:width .45s var(--e1),height .45s var(--e1),opacity .4s}
+/* TL dot ripple keyframe */
+@keyframes tlDotPulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}100%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+/* Section beam handled via JS-injected div + GSAP */
+/* Stat-num glow burst via GSAP textShadow */
+/* About quote reveal via GSAP letterSpacing */
+/* Scan beam keyframe fallback */
+@keyframes scanBeamAnim{0%{transform:translateY(-100%);opacity:1}100%{transform:translateY(3000%);opacity:0}}
+/* Floating badge/tag shimmer on hover */
+.h-fnode-lbl:hover{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.38);transition:all .3s ease}
+.h-badge:hover{border-color:rgba(255,255,255,.14);transition:border-color .3s}
+/* Word-break-in animation (about section word reveal) */
+.wbi{display:inline-block;will-change:transform,opacity}
+/* Skill pill premium hover */
+.sk-p{transition:background .25s,color .25s,border-color .25s,box-shadow .25s}
+.sk-p:hover{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.18)!important;color:#fff!important;box-shadow:0 0 18px rgba(255,255,255,.06)}</style>
 </head>
 <body>
 <div id="spb" aria-hidden="true"></div>
@@ -634,6 +676,31 @@ input:focus-visible,textarea:focus-visible{outline:1px solid rgba(255,255,255,.3
   <canvas id="hero-cvs" aria-hidden="true"></canvas>
   <div class="h-orb" style="width:900px;height:900px;top:-300px;right:-200px" aria-hidden="true"></div>
   <div class="h-orb" style="width:420px;height:420px;bottom:-80px;left:10%" aria-hidden="true"></div>
+
+  <!-- ── PREMIUM FLOATING DEPTH LAYER ── -->
+  <div class="h-depth-layer" id="hDepth" aria-hidden="true">
+    <!-- Breathing rings at different depths -->
+    <div class="h-ring" style="width:132px;height:132px;top:13%;right:11%;--dur:6s;--del:0s"></div>
+    <div class="h-ring" style="width:70px;height:70px;top:45%;right:6%;--dur:4.5s;--del:2.3s"></div>
+    <div class="h-ring" style="width:44px;height:44px;top:22%;right:27%;--dur:6.5s;--del:1.2s;opacity:.52"></div>
+    <div class="h-ring" style="width:24px;height:24px;bottom:32%;right:32%;--dur:5s;--del:3.1s;opacity:.4"></div>
+    <!-- Cross markers -->
+    <div class="h-cross" style="top:30%;right:20%"></div>
+    <div class="h-cross" style="top:18%;right:39%"></div>
+    <div class="h-cross" style="bottom:28%;right:15%"></div>
+    <div class="h-cross" style="bottom:40%;left:12%"></div>
+    <div class="h-cross" style="top:58%;right:24%;opacity:.1"></div>
+    <!-- Floating discipline nodes -->
+    <div class="h-fnode" style="top:19%;right:5%;--nd:8.5s;--ndel:0.4s"><div class="h-fnode-dot"></div><div class="h-fnode-lbl">Photography</div></div>
+    <div class="h-fnode" style="top:48%;right:2%;--nd:7.2s;--ndel:1.4s"><div class="h-fnode-dot"></div><div class="h-fnode-lbl">Brand Identity</div></div>
+    <div class="h-fnode" style="bottom:22%;right:7%;--nd:9.2s;--ndel:0.8s"><div class="h-fnode-dot"></div><div class="h-fnode-lbl">Creative Direction</div></div>
+    <!-- Info badge -->
+    <div class="h-badge" style="right:5%;bottom:11%"><span class="h-badge-t">Based in</span><span class="h-badge-v">Dhaka &middot; BD</span></div>
+    <!-- Decorative diagonal lines -->
+    <div class="h-dln" style="top:74%;left:59%;width:72px;transform:rotate(-7deg)"></div>
+    <div class="h-dln" style="top:36%;right:24%;width:44px;transform:rotate(14deg)"></div>
+  </div>
+
   <div class="h-vl" style="left:33%" aria-hidden="true"></div>
   <div class="h-vl" style="right:33%" aria-hidden="true"></div>
   <div class="h-hl" style="top:55%" aria-hidden="true"></div>
@@ -980,29 +1047,159 @@ var DESIGN_DATA=GD.filter(function(d){return d.cat==='branding';});
   items.concat(items).forEach(function(s){var e=document.createElement('div');e.className='mq-i';e.innerHTML='<span class="mq-d"></span>'+s;t.appendChild(e);});
 })();
 /* PRELOADER counter handled in boot system below */
-/* HERO CANVAS */
+/* HERO CANVAS — PREMIUM MAGNETIC RIBBON FIELD */
 (function(){
-  var cvs=document.getElementById('hero-cvs'),ctx=cvs.getContext('2d');
-  var W=0,H=0,pts=[],mx=0,my=0;
-  function resize(){W=cvs.width=cvs.offsetWidth;H=cvs.height=cvs.offsetHeight;}
-  resize();window.addEventListener('resize',resize,{passive:true});
-  for(var i=0;i<55;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.2+.3,o:Math.random()*.28+.05});
-  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
-  function tick(){
-    ctx.clearRect(0,0,W,H);
-    ctx.strokeStyle='rgba(255,255,255,.02)';ctx.lineWidth=.8;
-    for(var x=0;x<W;x+=110){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(var y=0;y<H;y+=110){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    pts.forEach(function(p){
-      if(mx){p.vx+=(mx-p.x)*.00008;p.vy+=(my-p.y)*.00008;}
-      p.vx*=.999;p.vy*=.999;p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+p.o+')';ctx.fill();
-    });
-    for(var i=0;i<pts.length;i++){for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<140){ctx.beginPath();ctx.strokeStyle='rgba(255,255,255,'+(0.028*(1-d/140))+')';ctx.lineWidth=.5;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}}
-    requestAnimationFrame(tick);
+var cvs=document.getElementById('hero-cvs');
+if(!cvs)return;
+var ctx=cvs.getContext('2d');
+var W=0,H=0,T=0,autoT=0;
+var DPR=Math.min(window.devicePixelRatio||1,1.5);
+var mx=-9999,my=-9999,mActive=false,pmx=0,pmy=0,mvx=0,mvy=0;
+var N=34,TLEN=30,streams=[];
+/* Reduce particle count on mobile for perf */
+if(window.innerWidth<=768){N=18;TLEN=20;}
+
+function mkS(){
+  var ph=Math.random()*Math.PI*2,pts=[],sx=Math.random()*W,sy=Math.random()*H;
+  for(var j=0;j<TLEN;j++)pts.push({x:sx,y:sy});
+  return{pts:pts,x:sx,y:sy,vx:(Math.random()-.5)*1.3,vy:(Math.random()-.5)*1.3,
+    ph:ph,a:0.038+Math.random()*.115,r:0.36+Math.random()*.95,lyr:Math.floor(Math.random()*3)};
+}
+function resize(){
+  W=cvs.offsetWidth;H=cvs.offsetHeight;
+  cvs.width=Math.round(W*DPR);cvs.height=Math.round(H*DPR);
+  ctx.scale(DPR,DPR);
+  streams=[];for(var i=0;i<N;i++)streams.push(mkS());
+}
+resize();
+var rTi;window.addEventListener('resize',function(){clearTimeout(rTi);rTi=setTimeout(resize,110);},{passive:true});
+document.addEventListener('mousemove',function(e){
+  pmx=mx;pmy=my;mx=e.clientX;my=e.clientY;
+  mvx=(mx-pmx)*.45;mvy=(my-pmy)*.45;mActive=true;
+},{passive:true});
+
+/* ── DEPTH LAYER PARALLAX ── */
+var dEl=document.getElementById('hDepth');
+var dpOX=.5,dpOY=.5,dpAT=0;
+function dParallax(){
+  dpAT+=.006;
+  if(!dEl||window.innerWidth<=900)return;
+  var dtX=mActive?mx/W:.5+Math.cos(dpAT*.9)*.28;
+  var dtY=mActive?my/H:.5+Math.sin(dpAT*1.1)*.21;
+  dpOX+=(dtX-dpOX)*.055;dpOY+=(dtY-dpOY)*.055;
+  var nx=(dpOX-.5)*2,ny=(dpOY-.5)*2;
+  /* Combine cursor parallax + scroll parallax in a single transform (avoids GSAP conflict) */
+  var sy=Math.min(window.scrollY||0,H)*-0.055;
+  dEl.style.transform='translate('+(nx*W*.022).toFixed(1)+'px,'+(ny*H*.014+sy).toFixed(1)+'px)';
+}
+
+/* Layer-specific physics constants */
+var LYAT=[.34,.22,.12],LYFC=[.953,.963,.973],LYMX=[4,2.8,1.8];
+
+function tick(){
+  T+=.01;autoT+=.0085;
+  ctx.clearRect(0,0,W,H);
+
+  /* Autonomous cursor for touch/no-mouse devices — Lissajous figure */
+  var cx=mActive?mx:W*.5+Math.cos(autoT*.88)*W*.33+Math.sin(autoT*.41)*W*.1;
+  var cy=mActive?my:H*.5+Math.sin(autoT*1.19)*H*.26+Math.cos(autoT*.55)*H*.09;
+
+  /* Radial cursor glow halo */
+  try{
+    var rg=ctx.createRadialGradient(cx,cy,0,cx,cy,300);
+    rg.addColorStop(0,'rgba(255,255,255,.02)');
+    rg.addColorStop(.5,'rgba(255,255,255,.005)');
+    rg.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
+  }catch(e){}
+
+  /* RIBBON STREAMS */
+  for(var i=0;i<streams.length;i++){
+    var s=streams[i],L=s.lyr;
+
+    /* Curl-noise approximation via trig */
+    s.vx+=(Math.sin(T*.8+s.ph)*.7+Math.cos(T*.5+s.ph*1.6)*.5)*.09;
+    s.vy+=(Math.cos(T*.8+s.ph)*.7+Math.sin(T*.5+s.ph*1.9)*.4)*.09;
+
+    /* Mouse / auto-cursor attract */
+    var dx=cx-s.x,dy=cy-s.y,dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var R=330-L*55;
+    if(dist<R){var f=((R-dist)/R)*LYAT[L];s.vx+=dx/dist*f;s.vy+=dy/dist*f;}
+
+    /* Mouse-velocity turbulence — makes fast moves feel dramatic */
+    if(mActive&&dist<R*1.6){
+      var tv=(1-Math.min(1,dist/(R*1.6)))*.022;
+      s.vx+=mvx*tv;s.vy+=mvy*tv;
+    }
+
+    /* Friction + speed cap */
+    s.vx*=LYFC[L];s.vy*=LYFC[L];
+    var sp=Math.sqrt(s.vx*s.vx+s.vy*s.vy)||1;
+    if(sp>LYMX[L]){s.vx=s.vx/sp*LYMX[L];s.vy=s.vy/sp*LYMX[L];}
+
+    s.x+=s.vx;s.y+=s.vy;
+
+    /* Seamless edge wrap */
+    var M=90;
+    if(s.x<-M)s.x=W+M;else if(s.x>W+M)s.x=-M;
+    if(s.y<-M)s.y=H+M;else if(s.y>H+M)s.y=-M;
+
+    /* Rolling trail */
+    s.pts.unshift({x:s.x,y:s.y});
+    if(s.pts.length>TLEN)s.pts.pop();
+    if(s.pts.length<4)continue;
+
+    /* Brightness boost when close to cursor */
+    var bright=1+Math.max(0,(210-dist)/210)*2.4;
+    var alpha=Math.min(.60,s.a*bright);
+
+    /* Smooth ribbon via quadratic bezier chain */
+    ctx.beginPath();
+    ctx.moveTo(s.pts[0].x,s.pts[0].y);
+    for(var j=1;j<s.pts.length-2;j++){
+      ctx.quadraticCurveTo(s.pts[j].x,s.pts[j].y,
+        (s.pts[j].x+s.pts[j+1].x)/2,(s.pts[j].y+s.pts[j+1].y)/2);
+    }
+    ctx.quadraticCurveTo(
+      s.pts[s.pts.length-2].x,s.pts[s.pts.length-2].y,
+      s.pts[s.pts.length-1].x,s.pts[s.pts.length-1].y);
+
+    /* Head-to-tail gradient fade */
+    try{
+      var g=ctx.createLinearGradient(s.pts[0].x,s.pts[0].y,s.pts[s.pts.length-1].x,s.pts[s.pts.length-1].y);
+      g.addColorStop(0,'rgba(255,255,255,'+alpha.toFixed(3)+')');
+      g.addColorStop(.38,'rgba(255,255,255,'+(alpha*.3).toFixed(3)+')');
+      g.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.strokeStyle=g;
+    }catch(e){ctx.strokeStyle='rgba(255,255,255,'+alpha+')';}
+
+    ctx.lineWidth=s.r*(1+(L<2?.42:.1)*Math.max(0,(180-dist)/180));
+    ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.stroke();
+
+    /* Soft glow dot at head — only for close+mid layers near cursor */
+    if(L<2&&dist<280){
+      var ga=Math.min(.28,s.a*2.9*bright*(1-dist/280));
+      try{
+        var grd2=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*6.5);
+        grd2.addColorStop(0,'rgba(255,255,255,'+ga.toFixed(3)+')');
+        grd2.addColorStop(1,'rgba(255,255,255,0)');
+        ctx.fillStyle=grd2;
+        ctx.beginPath();ctx.arc(s.x,s.y,s.r*6.5,0,Math.PI*2);ctx.fill();
+      }catch(e){}
+    }
   }
-  tick();
+
+  /* Ultra-subtle grid */
+  ctx.strokeStyle='rgba(255,255,255,.009)';ctx.lineWidth=.36;
+  for(var gx=0;gx<W;gx+=100){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,H);ctx.stroke();}
+  for(var gy=0;gy<H;gy+=100){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(W,gy);ctx.stroke();}
+
+  dParallax();
+  mvx*=.82;mvy*=.82;
+  requestAnimationFrame(tick);
+}
+tick();
 })();
 /* CURSOR PARALLAX */
 (function(){
@@ -1063,6 +1260,21 @@ function runBoot(){
       gsap.to('#hc2',   {opacity:1,duration:.9,delay:1.1});
       gsap.fromTo('.n-a', {opacity:0,y:-8},{opacity:1,y:0,duration:.65,ease:'power3.out',stagger:.05,delay:1.18});
       gsap.fromTo('.n-cta',{opacity:0,y:-8},{opacity:1,y:0,duration:.65,ease:'power3.out',delay:1.48});
+      /* Depth layer entrance — rings preserve their individual inline opacity values */
+      (function(){
+        var rings=[].slice.call(document.querySelectorAll('.h-ring'));
+        var ops=rings.map(function(r){var o=parseFloat(r.style.opacity);return(isNaN(o)||o<=0)?1:o;});
+        rings.forEach(function(r){r.style.opacity='0';r.style.transform='scale(0.7)';});
+        rings.forEach(function(r,i){gsap.to(r,{scale:1,opacity:ops[i],duration:1.1,ease:'power4.out',delay:1.3+i*.14});});
+      })();
+      gsap.fromTo('.h-cross',{scale:0,opacity:0},{scale:1,opacity:.2,duration:.7,ease:'back.out(2)',stagger:.06,delay:1.55});
+      gsap.fromTo('.h-fnode',{x:16,opacity:0},{x:0,opacity:1,duration:.9,ease:'power3.out',stagger:.12,delay:1.7});
+      gsap.fromTo('.h-badge',{y:12,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',delay:2.1});
+      gsap.fromTo('.h-dln',{scaleX:0,opacity:0},{scaleX:1,opacity:1,duration:.8,ease:'power3.out',stagger:.1,delay:1.9,transformOrigin:'left center'});
+      /* Hero title: glow pulse cascade after entrance */
+      setTimeout(function(){
+        try{gsap.fromTo('.h-wd',{filter:'brightness(1)',textShadow:'0 0 0px transparent'},{filter:'brightness(1.35)',textShadow:'0 0 80px rgba(255,255,255,.22),0 0 160px rgba(255,255,255,.08)',duration:.75,ease:'power2.out',stagger:.14,yoyo:true,repeat:1,repeatDelay:.3});}catch(e){}
+      },2000);
     }catch(e){console.warn('Hero anim:',e);}
     /* INIT ALL SCROLL/SECTION ANIMATIONS */
     try{initAll();}catch(e){console.error('initAll:',e);}
@@ -1264,6 +1476,10 @@ function initPremiumAnimations(){
   try{
     gsap.to('.h-orb',{y:function(i){return[-130,-70,-40][i]||-60;},ease:'none',
       scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1.4}});
+    /* hDepth scroll parallax handled by dParallax() inside canvas IIFE — no GSAP here to avoid transform conflict */
+    /* Hero text slight upward drift */
+    gsap.to('#hero .h-title',{y:-20,ease:'none',
+      scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1.8}});
   }catch(e){}
 
   /* ── 6. SECTION NUMBERS fade in ── */
@@ -1523,6 +1739,136 @@ function initPremiumAnimations(){
       scrollTrigger:{trigger:'footer',start:'top 95%',once:true}
     });
   }catch(e){}
+
+  /* ── 26. CLICK RIPPLE BURST on canvas area ── */
+  (function(){
+    var hero=document.getElementById('hero');
+    if(!hero)return;
+    hero.addEventListener('click',function(e){
+      for(var k=0;k<3;k++){
+        (function(delay){
+          var ring=document.createElement('div');
+          ring.style.cssText='position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;width:4px;height:4px;border-radius:50%;border:1px solid rgba(255,255,255,'+(0.5-delay*0.12)+');pointer-events:none;z-index:9996;transform:translate(-50%,-50%) scale(1);will-change:transform,opacity';
+          document.body.appendChild(ring);
+          var start=null;var dur=600+delay*200;
+          (function anim(ts){
+            if(!start)start=ts;
+            var p=Math.min((ts-start)/dur,1);
+            var sc=1+p*22;var op=(0.5-delay*0.1)*(1-p);
+            ring.style.transform='translate(-50%,-50%) scale('+sc+')';
+            ring.style.opacity=op;
+            if(p<1)requestAnimationFrame(anim);
+            else ring.remove();
+          })(start||performance.now());
+          setTimeout(function(){/* cascade delay handled by dur offset above */},delay*80);
+        })(k);
+      }
+    });
+  })();
+
+  /* ── 27. SECTION ENTRANCE BEAM SCAN ── */
+  (function(){
+    var sections=[].slice.call(document.querySelectorAll('.sec,#photography,#design'));
+    sections.forEach(function(sec){
+      var done=false;
+      new IntersectionObserver(function(entries){
+        if(!entries[0].isIntersecting||done)return;
+        done=true;
+        /* Ensure position context */
+        var cs=getComputedStyle(sec).position;
+        if(cs==='static')sec.style.position='relative';
+        var beam=document.createElement('div');
+        beam.style.cssText='position:absolute;left:0;right:0;height:2px;top:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.11),transparent);pointer-events:none;z-index:50;will-change:transform';
+        sec.appendChild(beam);
+        gsap.to(beam,{y:sec.offsetHeight+4,duration:1.5,ease:'power2.in',delay:.1,onComplete:function(){try{beam.remove();}catch(e){}}});
+      },{threshold:.06}).observe(sec);
+    });
+  })();
+
+  /* ── 28. CURSOR VELOCITY MORPHING — handled inside CURSOR IIFE above for cleaner scope ── */
+
+  /* ── 29. SCROLL VELOCITY SKEW ON MARQUEE ── already handled in step 22 */
+
+  /* ── 30. STATS GLOW BURST on counter complete ── */
+  (function(){
+    var done=new Set();
+    new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        var el=m.target;
+        if(!el.classList.contains('stat-num')||done.has(el))return;
+        var target=+el.getAttribute('data-target')||0;
+        var cur=parseInt(el.textContent)||0;
+        if(cur>=target&&target>0){
+          done.add(el);
+          gsap.fromTo(el,{textShadow:'0 0 0 transparent'},{textShadow:'0 0 60px rgba(255,255,255,.5),0 0 120px rgba(255,255,255,.18)',duration:.35,yoyo:true,repeat:1,ease:'power3.out'});
+        }
+      });
+    }).observe(document.body,{subtree:true,characterData:true,childList:true});
+  })();
+
+  /* ── 31. PHOTOGRAPHY GRID entrance handled inside initPhotoSection with stagger ── */
+
+  /* ── 32. TIMELINE DOTS PULSE ── */
+  (function(){
+    var dots=document.querySelectorAll('.tl-dot,.tl-sm');
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var d=e.target;obs.unobserve(d);
+        gsap.fromTo(d,{scale:0,opacity:0},{scale:1,opacity:1,duration:.6,ease:'elastic.out(1.2,.5)',delay:.1});
+        gsap.to(d,{boxShadow:'0 0 0 8px rgba(255,255,255,0)',scale:1.6,opacity:0,duration:.9,ease:'power2.out',delay:.2,onComplete:function(){d.style.boxShadow='';}});
+      });
+    },{threshold:.8});
+    dots.forEach(function(d){d.style.transform='scale(0)';d.style.opacity='0';obs.observe(d);});
+  })();
+
+  /* ── 33. HORIZONTAL LINE "BUILD" when HR enters viewport ── */
+  document.querySelectorAll('.hr').forEach(function(hr){
+    hr.style.transform='scaleX(0)';hr.style.transformOrigin='left';
+    new IntersectionObserver(function(entries){
+      if(!entries[0].isIntersecting)return;
+      gsap.to(hr,{scaleX:1,duration:1.2,ease:'power3.out'});
+    },{threshold:.5}).observe(hr);
+  });
+
+  /* ── 34. SECTION TAG — slide + fade ── */
+  document.querySelectorAll('.sec-tag').forEach(function(el){
+    gsap.fromTo(el,{x:-18,opacity:0},{x:0,opacity:1,duration:.7,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}});
+  });
+
+  /* ── 35. ABOUT QUOTE — word-reveal with letter-spacing collapse ── */
+  (function(){
+    var q=document.querySelector('.ab-quote');if(!q)return;
+    gsap.fromTo(q,{letterSpacing:'0.08em',opacity:0},{letterSpacing:'-0.03em',opacity:1,
+      duration:1.2,ease:'power3.out',
+      scrollTrigger:{trigger:q,start:'top 85%',toggleActions:'play none none none'}});
+  })();
+
+  /* ── 36. GLASS SHIMMER sweep on hover ── */
+  (function(){
+    document.querySelectorAll('.glass').forEach(function(card){
+      var shine=card.querySelector('.gsh');if(!shine)return;
+      card.addEventListener('mouseenter',function(){
+        gsap.fromTo(shine,{x:'-120%',opacity:.6},{x:'120%',opacity:0,duration:.7,ease:'power2.out'});
+      });
+    });
+  })();
+
+  /* ── 37. NAV LOGO 3-D TILT ── */
+  (function(){
+    var logo=document.querySelector('.n-logo');if(!logo)return;
+    logo.addEventListener('mousemove',function(e){
+      var r=logo.getBoundingClientRect();
+      var x=((e.clientX-r.left)/r.width-.5)*24;
+      var y=((e.clientY-r.top)/r.height-.5)*-18;
+      logo.style.transform='perspective(400px) rotateX('+y+'deg) rotateY('+x+'deg)';
+    });
+    logo.addEventListener('mouseleave',function(){
+      logo.style.transform='';
+      logo.style.transition='transform .7s cubic-bezier(.16,1,.3,1)';
+    });
+  })();
 }
 
 /* PHOTOGRAPHY */
@@ -1633,14 +1979,19 @@ function initTestimonials(){
   var resT3;window.addEventListener('resize',function(){clearTimeout(resT3);resT3=setTimeout(update,200);},{passive:true});
   update();updateDots();startAuto();
 }
-/* CURSOR */
+/* CURSOR — with velocity-based ring morphing */
 (function(){
   var cd=document.getElementById('cd'),cr=document.getElementById('cr'),cl=document.getElementById('cl');
+  if(!cd||!cr||!cl)return;
   var mx=-200,my=-200,rx=-200,ry=-200,lx=-200,ly=-200,first=true;
+  /* Velocity tracking */
+  var pvx=0,pvy=0,cpx=-999,cpy=-999;
   document.addEventListener('mousemove',function(e){
     mx=e.clientX;my=e.clientY;
     if(first){first=false;rx=mx;ry=my;lx=mx;ly=my;}
     cd.style.left=mx+'px';cd.style.top=my+'px';
+    if(cpx!==-999){pvx=mx-cpx;pvy=my-cpy;}
+    cpx=mx;cpy=my;
   },{passive:true});
   document.addEventListener('mouseleave',function(){cd.style.opacity='0';cr.style.opacity='0';});
   document.addEventListener('mouseenter',function(){cd.style.opacity='';cr.style.opacity='';});
@@ -1649,6 +2000,18 @@ function initTestimonials(){
     cr.style.left=(rx|0)+'px';cr.style.top=(ry|0)+'px';
     lx+=(mx-lx)*.075;ly+=(my-ly)*.075;
     cl.style.left=(lx|0)+'px';cl.style.top=(ly|0)+'px';
+    /* Velocity morph — ring stretches like a liquid droplet in travel direction */
+    var speed=Math.sqrt(pvx*pvx+pvy*pvy);
+    var noHoverOverride=!document.body.classList.contains('chov')&&!document.body.classList.contains('cview');
+    if(noHoverOverride&&speed>1.5){
+      var ang=Math.atan2(pvy,pvx)*(180/Math.PI);
+      var s=Math.min(1+speed*.048,2.2);
+      var sq=Math.max(1/s*.78,.38);
+      cr.style.transform='translate(-50%,-50%) rotate('+ang.toFixed(1)+'deg) scaleX('+s.toFixed(3)+') scaleY('+sq.toFixed(3)+') rotate(-'+ang.toFixed(1)+'deg)';
+    } else if(noHoverOverride){
+      cr.style.transform='translate(-50%,-50%)';
+    }
+    pvx*=.72;pvy*=.72;
     requestAnimationFrame(anim);
   })();
   document.addEventListener('mouseover',function(e){
