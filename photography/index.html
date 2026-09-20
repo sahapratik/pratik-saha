@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+
+<title>Pratik Saha — Photography Portfolio | Dhaka, Bangladesh</title>
+<meta name="description" content="The full photography archive of Pratik Saha — 35 frames across two series: rivers, hill tracts and tea gardens of Bangladesh, and live concert photography shot from the front row."/>
+<link rel="canonical" href="https://pratiksahaa.vercel.app/photography/"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<meta name="author" content="Pratik Saha"/>
+<meta name="theme-color" content="#050505"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Pratik Saha — Photography Portfolio"/>
+<meta property="og:description" content="35 frames across two series: the rivers and hill tracts of Bangladesh, and live concert photography."/>
+<meta property="og:url" content="https://pratiksahaa.vercel.app/photography/"/>
+<meta property="og:image" content="https://pratiksahaa.vercel.app/assets/brand/og-photography.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Pratik Saha photography — rivers, hill tracts and live performance"/>
+<meta property="og:site_name" content="Pratik Saha"/>
+<meta property="og:locale" content="en_US"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Pratik Saha — Photography Portfolio"/>
+<meta name="twitter:description" content="35 frames across two series: the rivers and hill tracts of Bangladesh, and live concert photography."/>
+<meta name="twitter:image" content="https://pratiksahaa.vercel.app/assets/brand/og-photography.jpg"/>
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="alternate icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+<link rel="dns-prefetch" href="https://unpkg.com"/>
+<link rel="preload" as="image" fetchpriority="high" href="assets/photography/nature/nature-05.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/core.css"/>
+
+<style>
+/* ── PHOTOGRAPHY PAGE ─────────────────────────────────────────────────── */
+:root{--gal-gap:16px}
+
+#hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;
+  padding-block:clamp(130px,18vh,190px) clamp(40px,7vh,84px)}
+.hero-plate{position:absolute;inset:0;z-index:0}
+.hero-plate img{width:100%;height:100%;object-fit:cover;filter:saturate(.62) contrast(1.06) brightness(.52);
+  transform:scale(1.04)}
+.hero-plate::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,var(--ink-000) 2%,rgba(5,5,5,.72) 40%,rgba(5,5,5,.5))}
+.hero-in{position:relative;z-index:2;width:100%}
+#ph-title{font-size:clamp(3.4rem,10.5vw,10rem);font-weight:900;line-height:.84;letter-spacing:-.05em;
+  color:var(--t-max);margin:clamp(18px,3vh,28px) 0 clamp(20px,3vh,30px)}
+#ph-title .ln{overflow:hidden;display:block}
+#ph-title .ln > span{display:block;transform:translateY(106%)}
+.hero-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px;
+  padding-top:22px;border-top:1px solid var(--ln-2)}
+.hero-stats{display:flex;gap:clamp(24px,4vw,56px)}
+.hero-stat b{display:block;font-size:clamp(1.4rem,2.6vw,2.2rem);font-weight:900;letter-spacing:-.04em;color:#fff;
+  font-variant-numeric:tabular-nums}
+.hero-stat span{display:block;font-size:.5rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--t-faint);margin-top:6px}
+
+.gal-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;
+  margin-bottom:clamp(24px,3.4vw,44px)}
+
+/* sticky progress chip */
+#galProgress{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);z-index:430;
+  display:flex;align-items:center;gap:12px;padding:10px 18px;border:1px solid var(--ln-2);
+  background:rgba(8,8,8,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  font-size:.52rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t-faint);
+  opacity:0;pointer-events:none;transition:opacity .4s,transform .4s var(--e-out)}
+#galProgress.show{opacity:1;transform:translate(-50%,0)}
+#galProgress b{color:#fff;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+@media(max-width:600px){#galProgress{bottom:16px;padding:8px 14px}}
+
+/* masonry */
+.gal-grid{display:grid;grid-auto-rows:6px;gap:var(--gal-gap);align-items:stretch}
+.cell{margin:0;position:relative;perspective:1100px}
+.cell-btn{display:block;width:100%;height:100%;padding:0;text-align:left;overflow:hidden;position:relative}
+.cell .card__media{height:100%}
+.cell .card__media img{width:100%;height:100%;object-fit:cover}
+.cell .card__body{padding:clamp(14px,1.6vw,22px)}
+.cell .card__cat{margin-bottom:6px}
+.cell .card__title{font-size:clamp(.88rem,1.15vw,1.1rem)}
+.cell .card__arrow{width:34px;height:34px}
+
+.cta-band{border-top:1px solid var(--ln-1);background:var(--ink-100)}
+.cta-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
+</style>
+
+<noscript>
+<style>
+/* Without JavaScript the galleries and generated sections cannot render, but
+   everything written into the HTML must still be readable. */
+.reveal,.line-reveal > *,.clip-reveal,.draw{opacity:1!important;transform:none!important;clip-path:none!important}
+#hEyebrow,#hSay,#hFacts,#hActions,#phEye,#phFoot,#dzEye,#dzFoot{opacity:1!important}
+#menu,#lightbox{display:none!important}
+#h-title .ln > span,#ph-title .ln > span,#dz-title .ln > span{transform:none!important}
+.t-outline{color:var(--t-max)!important;-webkit-text-stroke-color:transparent!important}
+#preload,.grain,#progress,#cur-dot,#cur-ring,#cur-label,#to-top{display:none!important}
+.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+.ab-pull .w{opacity:1!important;transform:none!important}
+.pr-slide{position:static!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.noscript-note{margin:0;padding:18px 0;border-top:1px solid var(--ln-2);border-bottom:1px solid var(--ln-2);
+  color:var(--t-soft);font-size:15px}
+.noscript-note a{color:var(--t-max)}
+</style>
+</noscript>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div id="preload" role="status" aria-live="polite">
+  <div class="pl-mark">PRATIK<br/>SAHA</div>
+  <div class="pl-sub">Photography</div>
+  <div class="pl-bar" aria-hidden="true"><i></i></div>
+  <span class="vh">Loading</span>
+</div>
+
+<header>
+<nav id="nav" aria-label="Primary">
+  <a href="../" class="nav-mark"><span class="badge" aria-hidden="true">PS</span>PRATIK SAHA<span class="sub">Photography</span></a>
+  <ul class="nav-links">
+    <li><a class="nav-link" href="../">Home</a></li>
+    <li><a class="nav-link" href="#gallery">Gallery</a></li>
+    <li><a class="nav-link" href="../design/">Design</a></li>
+    <li><a class="nav-link" href="../#contact">Contact</a></li>
+  </ul>
+  <a href="../#contact" class="nav-cta" data-magnetic="6"><span>Let's talk</span></a>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i>
+  </button>
+</nav>
+</header>
+
+<div id="menu" aria-label="Menu">
+  <ul class="m-list">
+    <li><a class="m-item" href="../"><span class="n" aria-hidden="true">01</span>Home</a></li>
+    <li><a class="m-item" href="#gallery"><span class="n" aria-hidden="true">02</span>Gallery</a></li>
+    <li><a class="m-item" href="../design/"><span class="n" aria-hidden="true">03</span>Design</a></li>
+    <li><a class="m-item" href="../#contact"><span class="n" aria-hidden="true">04</span>Contact</a></li>
+  </ul>
+  <div class="m-foot">
+    <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+    <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</div>
+
+<main id="main">
+<noscript><div class="container"><p class="noscript-note">The photography archive is rendered with JavaScript. With it disabled the 35 frames cannot be listed — please enable JavaScript, or email <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a> for the portfolio.</p></div></noscript>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="ph-title">
+  <div class="hero-plate" aria-hidden="true">
+    <img src="assets/photography/nature/nature-05.jpg" alt="" width="2752" height="1536" fetchpriority="high" decoding="async"/>
+  </div>
+  <div class="hero-in container">
+    <p class="eyebrow" id="phEye" style="opacity:0">Nature · Travel · Live concert</p>
+    <h1 id="ph-title">
+      <span class="ln"><span>THE ART</span></span>
+      <span class="ln"><span class="t-outline" id="phOutline">OF SEEING.</span></span>
+    </h1>
+    <div class="hero-foot" id="phFoot" style="opacity:0">
+      <p class="t-lead" style="max-width:40ch">Frames from the rivers and hill tracts of Bangladesh, and from stages lit for one night only — a working photographer's selects.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><b data-count="35">0</b><span>Photographs</span></div>
+        <div class="hero-stat"><b>02</b><span>Series</span></div>
+        <div class="hero-stat"><b>BD</b><span>Bangladesh</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRODUCTION ════════════════════════════════════════════════════ -->
+<section class="section" style="padding-block:clamp(64px,9vh,120px)" aria-labelledby="intro-h">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="sec-idx">01 / The archive</span>
+      <div>
+        <h2 id="intro-h" class="t-h2 line-reveal"><span>Two worlds.<br/>One eye.</span></h2>
+        <p class="t-body reveal" data-d="1" style="margin-top:26px">Eighteen frames from the rivers, hill tracts and tea gardens of Bangladesh — slow, wide, weather-driven work where the job is to wait for the light rather than make it. Seventeen from live stages, where the light lasts a fraction of a second and there is no second take.</p>
+        <p class="t-body reveal" data-d="2">Every image here ships at full resolution in the viewer. Nothing is cropped to fit a grid — each frame keeps the shape it was taken in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═════════════════════════════════════════════════════════ -->
+<section id="gallery" class="section" style="padding-top:0" aria-labelledby="gal-h">
+  <div class="container">
+    <div class="gal-head">
+      <div>
+        <span class="sec-idx" style="padding-left:0">02 / Gallery</span>
+        <h2 id="gal-h" class="t-h3 line-reveal" style="margin-top:12px"><span>Every frame, full size.</span></h2>
+      </div>
+      <div class="filters reveal" id="galFilters" role="group" aria-label="Filter photographs by series">
+        <button class="filter" data-filter="all" aria-pressed="true">All <b>35</b></button>
+        <button class="filter" data-filter="nature" aria-pressed="false">Nature &amp; travel <b>18</b></button>
+        <button class="filter" data-filter="concert" aria-pressed="false">Live &amp; concert <b>17</b></button>
+      </div>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═════════════════════════════════════════════════════════════ -->
+<section class="cta-band section" style="padding-block:clamp(56px,8vh,104px)" aria-labelledby="cta-h">
+  <div class="container cta-in">
+    <div>
+      <h2 id="cta-h" class="t-h3 line-reveal"><span>Commissioning a shoot?</span></h2>
+      <p class="t-lead reveal" data-d="1" style="margin-top:14px;max-width:42ch">Live and editorial work, events, portraits, and travel commissions — in Dhaka or further out.</p>
+    </div>
+    <div class="reveal" data-d="2" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="../#contact" class="button button--solid" data-magnetic="7"><span>Get in touch <i class="arw" aria-hidden="true">&#8594;</i></span></a>
+      <a href="../design/" class="button button--line" data-magnetic="7"><span>See design work</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="galProgress" aria-hidden="true"><span>Gallery</span><b>0%</b></div>
+
+<footer class="site-foot">
+  <div class="container">
+    <p class="foot-word" aria-hidden="true">PHOTOGRAPHY</p>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h3>Navigate</h3>
+        <a href="../">Full portfolio</a>
+        <a href="#gallery">Gallery</a>
+        <a href="../design/">Design &amp; motion</a>
+        <a href="../#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h3>Series</h3>
+        <p>Nature &amp; travel — 18 frames</p>
+        <p>Live &amp; concert — 17 frames</p>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+        <a href="tel:+8801973828768">+880 1973 828 768</a>
+        <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h3>Studio</h3>
+        <p>Uttara, Dhaka — 1230</p>
+        <p>Bangladesh</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; 2026 Pratik Saha — All rights reserved</p>
+      <p>Dhaka / Bangladesh</p>
+    </div>
+  </div>
+</footer>
+
+<button id="to-top" aria-label="Back to top">&#8593;</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "@id":"https://pratiksahaa.vercel.app/photography/#page",
+  "url":"https://pratiksahaa.vercel.app/photography/",
+  "name":"Pratik Saha — Photography Portfolio",
+  "description":"The full photography archive of Pratik Saha — 35 frames across nature, travel and live concert photography, shot in Bangladesh.",
+  "inLanguage":"en",
+  "isPartOf":{"@type":"WebSite","@id":"https://pratiksahaa.vercel.app/#website","url":"https://pratiksahaa.vercel.app/"},
+  "author":{"@type":"Person","@id":"https://pratiksahaa.vercel.app/#pratik","name":"Pratik Saha"},
+  "breadcrumb":{
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pratiksahaa.vercel.app/"},
+      {"@type":"ListItem","position":2,"name":"Photography","item":"https://pratiksahaa.vercel.app/photography/"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json" id="gallerySchema"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="../assets/js/data.js" defer></script>
+<script src="../assets/js/core.js" defer></script>
+<script src="../assets/js/gallery.js" defer></script>
+<script src="../assets/js/page-photography.js" defer></script>
+</body>
+</html>
