@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+
+<title>Pratik Saha — Design &amp; Branding Portfolio</title>
+<meta name="description" content="Brand identity, campaign design and motion work by Pratik Saha — 13 static pieces and 5 video edits made for events, sports clubs, hospitality brands and cultural programmes in Dhaka, Bangladesh."/>
+<link rel="canonical" href="https://pratiksahaa.vercel.app/design/"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<meta name="author" content="Pratik Saha"/>
+<meta name="theme-color" content="#050505"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Pratik Saha — Design &amp; Branding Portfolio"/>
+<meta property="og:description" content="Brand identity, campaign design and motion work — 13 static pieces and 5 video edits."/>
+<meta property="og:url" content="https://pratiksahaa.vercel.app/design/"/>
+<meta property="og:image" content="https://pratiksahaa.vercel.app/assets/brand/og-design.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Pratik Saha design and branding work"/>
+<meta property="og:site_name" content="Pratik Saha"/>
+<meta property="og:locale" content="en_US"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Pratik Saha — Design &amp; Branding Portfolio"/>
+<meta name="twitter:description" content="Brand identity, campaign design and motion work — 13 static pieces and 5 video edits."/>
+<meta name="twitter:image" content="https://pratiksahaa.vercel.app/assets/brand/og-design.jpg"/>
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="alternate icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+<link rel="dns-prefetch" href="https://unpkg.com"/>
+<link rel="preload" as="image" fetchpriority="high" href="assets/design/hero-poster.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/core.css"/>
+
+<style>
+/* ── DESIGN PAGE ──────────────────────────────────────────────────────── */
+:root{--gal-gap:16px}
+
+#hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;
+  padding-block:clamp(130px,18vh,190px) clamp(40px,7vh,84px)}
+.hero-plate{position:absolute;inset:0;z-index:0;background:var(--ink-000)}
+.hero-plate img,.hero-plate video{width:100%;height:100%;object-fit:cover;
+  filter:saturate(.6) contrast(1.05) brightness(.46)}
+.hero-plate video{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--e-out)}
+.hero-plate video.on{opacity:1}
+.hero-plate::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,var(--ink-000) 2%,rgba(5,5,5,.7) 42%,rgba(5,5,5,.48))}
+/* poster-sized graphic rule: the design page is more structured than the photo page */
+.hero-rule{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-rule i{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.05)}
+.hero-in{position:relative;z-index:2;width:100%}
+#dz-title{font-size:clamp(3.4rem,10.5vw,10rem);font-weight:900;line-height:.84;letter-spacing:-.05em;
+  color:var(--t-max);margin:clamp(18px,3vh,28px) 0 clamp(20px,3vh,30px)}
+#dz-title .ln{overflow:hidden;display:block}
+#dz-title .ln > span{display:block;transform:translateY(106%)}
+.hero-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px;
+  padding-top:22px;border-top:1px solid var(--ln-2)}
+.hero-stats{display:flex;gap:clamp(24px,4vw,56px)}
+.hero-stat b{display:block;font-size:clamp(1.4rem,2.6vw,2.2rem);font-weight:900;letter-spacing:-.04em;color:#fff;
+  font-variant-numeric:tabular-nums}
+.hero-stat span{display:block;font-size:.5rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--t-faint);margin-top:6px}
+
+.gal-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;
+  margin-bottom:clamp(24px,3.4vw,44px)}
+
+#galProgress{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);z-index:430;
+  display:flex;align-items:center;gap:12px;padding:10px 18px;border:1px solid var(--ln-2);
+  background:rgba(8,8,8,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  font-size:.52rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t-faint);
+  opacity:0;pointer-events:none;transition:opacity .4s,transform .4s var(--e-out)}
+#galProgress.show{opacity:1;transform:translate(-50%,0)}
+#galProgress b{color:#fff;font-variant-numeric:tabular-nums;min-width:3.2em;text-align:right}
+@media(max-width:600px){#galProgress{bottom:16px;padding:8px 14px}}
+
+.gal-grid{display:grid;grid-auto-rows:6px;gap:var(--gal-gap);align-items:stretch}
+.cell{margin:0;position:relative;perspective:1100px}
+.cell-btn{display:block;width:100%;height:100%;padding:0;text-align:left;overflow:hidden;position:relative}
+.cell .card__media{height:100%}
+.cell .card__media img{width:100%;height:100%;object-fit:cover}
+.cell .card__body{padding:clamp(14px,1.6vw,22px)}
+.cell .card__cat{margin-bottom:6px}
+.cell .card__title{font-size:clamp(.88rem,1.15vw,1.1rem)}
+.cell .card__arrow{width:34px;height:34px}
+/* video preview sits over the poster and fades in once it is actually playing */
+.cell-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transition:opacity .5s var(--e-out);pointer-events:none}
+.cell:hover .cell-vid,.cell-vid.playing{opacity:1}
+.cell-badge{position:absolute;top:14px;right:14px;z-index:5;padding:5px 10px;
+  border:1px solid rgba(255,255,255,.25);background:rgba(5,5,5,.55);backdrop-filter:blur(8px);
+  font-size:.48rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;
+  font-variant-numeric:tabular-nums}
+
+.cta-band{border-top:1px solid var(--ln-1);background:var(--ink-100)}
+.cta-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px}
+</style>
+
+<noscript>
+<style>
+/* Without JavaScript the galleries and generated sections cannot render, but
+   everything written into the HTML must still be readable. */
+.reveal,.line-reveal > *,.clip-reveal,.draw{opacity:1!important;transform:none!important;clip-path:none!important}
+#hEyebrow,#hSay,#hFacts,#hActions,#phEye,#phFoot,#dzEye,#dzFoot{opacity:1!important}
+#menu,#lightbox{display:none!important}
+#h-title .ln > span,#ph-title .ln > span,#dz-title .ln > span{transform:none!important}
+.t-outline{color:var(--t-max)!important;-webkit-text-stroke-color:transparent!important}
+#preload,.grain,#progress,#cur-dot,#cur-ring,#cur-label,#to-top{display:none!important}
+.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+.ab-pull .w{opacity:1!important;transform:none!important}
+.pr-slide{position:static!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.noscript-note{margin:0;padding:18px 0;border-top:1px solid var(--ln-2);border-bottom:1px solid var(--ln-2);
+  color:var(--t-soft);font-size:15px}
+.noscript-note a{color:var(--t-max)}
+</style>
+</noscript>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div id="preload" role="status" aria-live="polite">
+  <div class="pl-mark">PRATIK<br/>SAHA</div>
+  <div class="pl-sub">Design &amp; Motion</div>
+  <div class="pl-bar" aria-hidden="true"><i></i></div>
+  <span class="vh">Loading</span>
+</div>
+
+<header>
+<nav id="nav" aria-label="Primary">
+  <a href="../" class="nav-mark"><span class="badge" aria-hidden="true">PS</span>PRATIK SAHA<span class="sub">Design</span></a>
+  <ul class="nav-links">
+    <li><a class="nav-link" href="../">Home</a></li>
+    <li><a class="nav-link" href="#gallery">Work</a></li>
+    <li><a class="nav-link" href="../photography/">Photography</a></li>
+    <li><a class="nav-link" href="../#contact">Contact</a></li>
+  </ul>
+  <a href="../#contact" class="nav-cta" data-magnetic="6"><span>Let's talk</span></a>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i>
+  </button>
+</nav>
+</header>
+
+<div id="menu" aria-label="Menu">
+  <ul class="m-list">
+    <li><a class="m-item" href="../"><span class="n" aria-hidden="true">01</span>Home</a></li>
+    <li><a class="m-item" href="#gallery"><span class="n" aria-hidden="true">02</span>Work</a></li>
+    <li><a class="m-item" href="../photography/"><span class="n" aria-hidden="true">03</span>Photography</a></li>
+    <li><a class="m-item" href="../#contact"><span class="n" aria-hidden="true">04</span>Contact</a></li>
+  </ul>
+  <div class="m-foot">
+    <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+    <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</div>
+
+<main id="main">
+<noscript><div class="container"><p class="noscript-note">The design archive is rendered with JavaScript. With it disabled the 18 pieces cannot be listed — please enable JavaScript, or email <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a> for the portfolio.</p></div></noscript>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="dz-title">
+  <div class="hero-plate" aria-hidden="true">
+    <img src="assets/design/hero-poster.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async"/>
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/design/hero-poster.jpg"></video>
+  </div>
+  <div class="hero-rule" aria-hidden="true"><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i></div>
+  <div class="hero-in container">
+    <p class="eyebrow" id="dzEye" style="opacity:0">Branding · Campaign · Motion</p>
+    <h1 id="dz-title">
+      <span class="ln"><span>VISUAL</span></span>
+      <span class="ln"><span class="t-outline" id="dzOutline">IDENTITY.</span></span>
+    </h1>
+    <div class="hero-foot" id="dzFoot" style="opacity:0">
+      <p class="t-lead" style="max-width:42ch">Brand systems, campaign design and short-form edits for events, sports clubs, hospitality and cultural programmes.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><b data-count="13">0</b><span>Static pieces</span></div>
+        <div class="hero-stat"><b data-count="5">0</b><span>Video edits</span></div>
+        <div class="hero-stat"><b>BD</b><span>Dhaka</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTRODUCTION ════════════════════════════════════════════════════ -->
+<section class="section" style="padding-block:clamp(64px,9vh,120px)" aria-labelledby="intro-h">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="sec-idx">01 / The archive</span>
+      <div>
+        <h2 id="intro-h" class="t-h2 line-reveal"><span>Systems, not one-offs.</span></h2>
+        <p class="t-body reveal" data-d="1" style="margin-top:26px">Most of this work exists inside a series — a campaign that had to hold across five posts, a brand that had to survive being printed, projected and posted. The individual piece is the visible part; the system underneath it is the job.</p>
+        <p class="t-body reveal" data-d="2">The motion work runs on the same logic. Colour, pacing and type are decided once, then applied — which is why a 14-second cut and a 37-second montage still read as coming from the same hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═════════════════════════════════════════════════════════ -->
+<section id="gallery" class="section" style="padding-top:0" aria-labelledby="gal-h">
+  <div class="container">
+    <div class="gal-head">
+      <div>
+        <span class="sec-idx" style="padding-left:0">02 / Work</span>
+        <h2 id="gal-h" class="t-h3 line-reveal" style="margin-top:12px"><span>Static and motion, together.</span></h2>
+      </div>
+      <div class="filters reveal" id="galFilters" role="group" aria-label="Filter work by type">
+        <button class="filter" data-filter="all" aria-pressed="true">All <b>18</b></button>
+        <button class="filter" data-filter="static" aria-pressed="false">Static <b>13</b></button>
+        <button class="filter" data-filter="video" aria-pressed="false">Video <b>5</b></button>
+        <button class="filter" data-filter="branding" aria-pressed="false">Branding <b>5</b></button>
+        <button class="filter" data-filter="campaign" aria-pressed="false">Campaign <b>8</b></button>
+      </div>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═════════════════════════════════════════════════════════════ -->
+<section class="cta-band section" style="padding-block:clamp(56px,8vh,104px)" aria-labelledby="cta-h">
+  <div class="container cta-in">
+    <div>
+      <h2 id="cta-h" class="t-h3 line-reveal"><span>Got a brand to build?</span></h2>
+      <p class="t-lead reveal" data-d="1" style="margin-top:14px;max-width:42ch">Identity systems, campaign design, event key art and short-form video — from the direction down to the final export.</p>
+    </div>
+    <div class="reveal" data-d="2" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="../#contact" class="button button--solid" data-magnetic="7"><span>Start a project <i class="arw" aria-hidden="true">&#8594;</i></span></a>
+      <a href="../photography/" class="button button--line" data-magnetic="7"><span>See photography</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="galProgress" aria-hidden="true"><span>Archive</span><b>0%</b></div>
+
+<footer class="site-foot">
+  <div class="container">
+    <p class="foot-word" aria-hidden="true">DESIGN</p>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h3>Navigate</h3>
+        <a href="../">Full portfolio</a>
+        <a href="#gallery">Design work</a>
+        <a href="../photography/">Photography</a>
+        <a href="../#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h3>Disciplines</h3>
+        <p>Brand identity &amp; visual systems</p>
+        <p>Campaign &amp; event design</p>
+        <p>Video editing &amp; colour grading</p>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+        <a href="tel:+8801973828768">+880 1973 828 768</a>
+        <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h3>Studio</h3>
+        <p>Uttara, Dhaka — 1230</p>
+        <p>Bangladesh</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; 2026 Pratik Saha — All rights reserved</p>
+      <p>Dhaka / Bangladesh</p>
+    </div>
+  </div>
+</footer>
+
+<button id="to-top" aria-label="Back to top">&#8593;</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "@id":"https://pratiksahaa.vercel.app/design/#page",
+  "url":"https://pratiksahaa.vercel.app/design/",
+  "name":"Pratik Saha — Design & Branding Portfolio",
+  "description":"Brand identity, campaign design and motion work by Pratik Saha — 13 static pieces and 5 video edits.",
+  "inLanguage":"en",
+  "isPartOf":{"@type":"WebSite","@id":"https://pratiksahaa.vercel.app/#website","url":"https://pratiksahaa.vercel.app/"},
+  "author":{"@type":"Person","@id":"https://pratiksahaa.vercel.app/#pratik","name":"Pratik Saha"},
+  "breadcrumb":{
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://pratiksahaa.vercel.app/"},
+      {"@type":"ListItem","position":2,"name":"Design","item":"https://pratiksahaa.vercel.app/design/"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json" id="workSchema"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="../assets/js/data.js" defer></script>
+<script src="../assets/js/core.js" defer></script>
+<script src="../assets/js/gallery.js" defer></script>
+<script src="../assets/js/page-design.js" defer></script>
+</body>
+</html>

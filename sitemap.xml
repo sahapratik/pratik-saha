@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://pratiksahaa.vercel.app/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pratiksahaa.vercel.app/assets/brand/og-home.jpg</image:loc>
+      <image:title>Pratik Saha — Creative Director, Designer &amp; Photographer</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pratiksahaa.vercel.app/photography/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pratiksahaa.vercel.app/assets/brand/og-photography.jpg</image:loc>
+      <image:title>Pratik Saha — Photography Portfolio</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pratiksahaa.vercel.app/design/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://pratiksahaa.vercel.app/assets/brand/og-design.jpg</image:loc>
+      <image:title>Pratik Saha — Design &amp; Branding Portfolio</image:title>
+    </image:image>
+  </url>
+</urlset>

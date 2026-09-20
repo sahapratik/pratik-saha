@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+
+<title>Pratik Saha — Creative Director, Designer &amp; Photographer in Dhaka</title>
+<meta name="description" content="Pratik Saha is a creative director, designer and photographer in Dhaka, Bangladesh, working across brand identity, campaign design, event direction and editorial photography. See selected work, the photography archive and the design portfolio."/>
+<link rel="canonical" href="https://pratiksahaa.vercel.app/"/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<meta name="author" content="Pratik Saha"/>
+<meta name="theme-color" content="#050505"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Pratik Saha — Creative Director, Designer &amp; Photographer"/>
+<meta property="og:description" content="Brand identity, campaign design, event direction and editorial photography from Dhaka, Bangladesh."/>
+<meta property="og:url" content="https://pratiksahaa.vercel.app/"/>
+<meta property="og:image" content="https://pratiksahaa.vercel.app/assets/brand/og-home.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Pratik Saha — creative direction, design and photography, Dhaka"/>
+<meta property="og:site_name" content="Pratik Saha"/>
+<meta property="og:locale" content="en_US"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Pratik Saha — Creative Director, Designer &amp; Photographer"/>
+<meta name="twitter:description" content="Brand identity, campaign design, event direction and editorial photography from Dhaka, Bangladesh."/>
+<meta name="twitter:image" content="https://pratiksahaa.vercel.app/assets/brand/og-home.jpg"/>
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="alternate icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+<link rel="dns-prefetch" href="https://unpkg.com"/>
+<link rel="preload" as="image" fetchpriority="high" href="photography/assets/photography/nature/nature-11-thumb.jpg"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/core.css"/>
+
+<style>
+/* ── HOME-ONLY LAYOUT ─────────────────────────────────────────────────── */
+
+/* hero ------------------------------------------------------------------ */
+#hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-block:clamp(120px,16vh,180px) clamp(40px,7vh,86px);overflow:hidden;background:var(--ink-000)}
+.h-frame{position:absolute;inset:0;pointer-events:none;z-index:0}
+.h-frame i{position:absolute;background:var(--ln-0)}
+.h-frame .v{top:0;bottom:0;width:1px}
+.h-frame .h{left:0;right:0;height:1px}
+.h-corner{position:absolute;font-size:.5rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(255,255,255,.17);z-index:1}
+.h-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) clamp(250px,28vw,420px);
+  gap:clamp(24px,4vw,64px);align-items:end;width:100%;max-width:var(--shell);margin-inline:auto;padding-inline:var(--gut)}
+.h-eyebrow{margin-bottom:clamp(18px,2.6vh,30px)}
+#h-title{margin:0 0 clamp(20px,3vh,34px);font-size:clamp(4rem,12.5vw,12rem);font-weight:900;
+  line-height:.82;letter-spacing:-.055em;color:var(--t-max)}
+#h-title .ln{overflow:hidden;display:block}
+#h-title .ln > span{display:block;transform:translateY(106%)}
+.h-say{max-width:34ch;font-size:clamp(1rem,1.5vw,1.35rem);font-weight:200;line-height:1.55;
+  letter-spacing:-.018em;color:var(--t-mid)}
+.h-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin:clamp(22px,3.2vh,36px) 0 clamp(24px,3.4vh,38px);
+  padding-top:18px;border-top:1px solid var(--ln-1)}
+.h-fact{display:inline-flex;align-items:center;gap:9px;font-size:.56rem;font-weight:800;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--t-faint)}
+.h-fact b{color:var(--t-mid);font-weight:800}
+.h-live{width:6px;height:6px;border-radius:50%;background:#fff;flex:none;position:relative}
+.h-live::after{content:'';position:absolute;inset:0;border-radius:50%;background:#fff;
+  animation:ping 2.4s var(--e-out) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(3.4);opacity:0}}
+.h-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* the one 3D object on the page: a stack of three real frames */
+.h-stack{position:relative;perspective:1300px;aspect-ratio:3/4;align-self:end;will-change:transform}
+.h-stack__in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s var(--e-out)}
+.h-plate{position:absolute;overflow:hidden;background:var(--ink-300);border:1px solid var(--ln-2);margin:0;
+  box-shadow:0 34px 80px -34px rgba(0,0,0,.95)}
+.h-plate img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.05)}
+.h-plate::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),transparent 38%,transparent 76%,rgba(255,255,255,.06))}
+.h-plate--back{inset:0 18% 26% 0;transform:translateZ(-60px) rotate(-2.2deg);opacity:.5}
+.h-plate--mid{inset:12% 8% 12% 10%;transform:translateZ(0) rotate(1.1deg);opacity:.8}
+.h-plate--front{inset:24% 0 0 20%;transform:translateZ(58px)}
+.h-plate__tag{position:absolute;left:0;bottom:0;right:0;padding:14px 16px;z-index:2;
+  background:linear-gradient(to top,rgba(5,5,5,.92),transparent);
+  font-size:.5rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.h-cue{position:absolute;left:var(--gut);bottom:clamp(14px,2.4vh,26px);z-index:2;display:flex;align-items:center;gap:12px;
+  font-size:.5rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--t-faint)}
+.h-cue i{display:block;width:34px;height:1px;background:var(--ln-3);position:relative;overflow:hidden}
+.h-cue i::after{content:'';position:absolute;inset:0;background:#fff;animation:cue 2.4s var(--e-io) infinite}
+@keyframes cue{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@media(max-width:900px){
+  #hero{justify-content:center;padding-top:clamp(112px,18vh,150px)}
+  .h-inner{grid-template-columns:1fr}
+  .h-stack,.h-corner,.h-cue{display:none}
+}
+
+/* statement band -------------------------------------------------------- */
+#statement{background:var(--ink-100);border-block:1px solid var(--ln-1);padding-block:clamp(70px,11vh,150px)}
+.st-text{font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:200;line-height:1.28;letter-spacing:-.035em;
+  color:var(--t-faint);max-width:22ch}
+.st-text b{font-weight:200;color:var(--t-max)}
+.st-meta{display:flex;flex-direction:column;gap:14px;padding-top:10px}
+
+/* about ----------------------------------------------------------------- */
+.ab-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,5vw,80px);align-items:start}
+.ab-pull{font-size:clamp(1.6rem,3vw,2.7rem);font-weight:200;line-height:1.28;letter-spacing:-.035em;color:#fff;
+  padding-left:clamp(18px,2vw,28px);border-left:1px solid var(--ln-2);margin-bottom:clamp(28px,4vw,44px)}
+.ab-pull .w{display:inline-block;opacity:0;transform:translateY(.42em);
+  transition:opacity .6s var(--e-out),transform .7s var(--e-out)}
+.ab-pull.in .w{opacity:1;transform:none}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:clamp(26px,3.4vw,38px)}
+.tag{font-size:.54rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--t-low);
+  border:1px solid var(--ln-1);padding:8px 14px;transition:color .3s,border-color .3s,background .3s}
+.tag:hover{color:#fff;border-color:var(--ln-2);background:rgba(255,255,255,.03)}
+.ab-detail{border:1px solid var(--ln-1);background:var(--ink-200);padding:clamp(20px,2.4vw,30px);margin-top:22px}
+.ab-detail dt{font-size:.5rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--t-faint);margin-bottom:6px}
+.ab-detail dd{font-size:.88rem;color:var(--t-mid);margin:0 0 18px}
+.ab-detail dd:last-child{margin-bottom:0}
+.ab-detail dd a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.ab-grid{grid-template-columns:1fr;gap:44px}}
+
+/* experience ------------------------------------------------------------ */
+.tl-item{display:grid;grid-template-columns:clamp(118px,15vw,200px) 1px minmax(0,1fr);
+  gap:clamp(20px,3vw,48px);padding-block:clamp(26px,3.6vw,46px);position:relative}
+.tl-item:first-child{padding-top:0}
+.tl-year{font-size:clamp(.72rem,.95vw,.9rem);font-weight:800;letter-spacing:.05em;color:var(--t-faint);
+  text-align:right;padding-top:.35em;transition:color .5s var(--e-out);font-variant-numeric:tabular-nums}
+.tl-item.lit .tl-year{color:#fff}
+.tl-line{position:relative;background:var(--ln-1)}
+.tl-line::after{content:'';position:absolute;left:0;top:0;width:1px;height:0;background:rgba(255,255,255,.4);
+  transition:height 1s var(--e-out)}
+.tl-item.lit .tl-line::after{height:100%}
+.tl-node{position:absolute;left:50%;top:.75em;width:7px;height:7px;margin-left:-3px;border-radius:50%;
+  background:var(--ink-100);border:1px solid var(--ln-3);transition:background .5s,border-color .5s,transform .5s var(--e-out)}
+.tl-item.lit .tl-node{background:#fff;border-color:#fff;transform:scale(1.25)}
+.tl-role{font-size:clamp(1.05rem,1.7vw,1.5rem);font-weight:700;letter-spacing:-.025em;color:#fff;margin-bottom:8px}
+.tl-org{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t-faint);margin-bottom:16px}
+.tl-org span{color:var(--t-low)}
+.tl-desc{font-size:.92rem;font-weight:300;line-height:1.8;color:var(--t-low);max-width:56ch}
+.tl-cat{display:inline-block;margin-top:16px;font-size:.5rem;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--t-faint);border:1px solid var(--ln-1);padding:6px 12px}
+@media(max-width:760px){
+  .tl-item{grid-template-columns:1px minmax(0,1fr);gap:20px}
+  .tl-year{text-align:left;grid-column:1/-1;margin-bottom:6px;padding-top:0}
+  .tl-node{top:.2em}
+}
+
+/* bento work grid ------------------------------------------------------- */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,1.5vw,22px)}
+.bento .tilt{display:block}
+.bento .card{height:100%}
+.b-feature{grid-column:span 8;height:clamp(300px,42vw,580px)}
+.b-tall{grid-column:span 4;height:clamp(300px,42vw,580px)}
+.b-wide{grid-column:span 8;height:clamp(230px,29vw,410px)}
+.b-std{grid-column:span 4;height:clamp(230px,29vw,410px)}
+.card__yr{font-size:.5rem;font-weight:800;letter-spacing:.2em;color:var(--t-faint);margin-top:8px;display:block}
+@media(max-width:1024px){
+  .bento{grid-template-columns:repeat(8,minmax(0,1fr))}
+  .b-feature,.b-wide{grid-column:span 8}
+  .b-tall,.b-std{grid-column:span 4}
+}
+@media(max-width:640px){
+  .bento{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .b-feature,.b-wide,.b-tall,.b-std{grid-column:span 4;height:clamp(240px,62vw,330px)}
+}
+
+/* discipline split ------------------------------------------------------ */
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
+.split .tilt{display:block}
+.split .card{height:clamp(330px,40vw,530px)}
+.disc-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+.disc-count{font-size:.56rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t-faint)}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+
+/* horizontal rail ------------------------------------------------------- */
+#rail{background:var(--ink-100);border-block:1px solid var(--ln-1);overflow:hidden}
+.rail-track{display:flex;gap:clamp(14px,1.8vw,26px);align-items:stretch;will-change:transform;padding-inline:var(--gut)}
+.rail-card{flex:none;width:clamp(230px,25vw,370px);position:relative;overflow:hidden;
+  background:var(--ink-200);border:1px solid var(--ln-1);height:clamp(300px,42vh,470px)}
+.rail-card img{width:100%;height:100%;object-fit:cover;filter:saturate(.88);transition:transform 1s var(--e-out)}
+.rail-card:hover img{transform:scale(1.05)}
+.rail-card__v{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.92),transparent 60%)}
+.rail-card__b{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,1.6vw,22px)}
+.rail-card__n{position:absolute;top:15px;left:15px;font-size:.54rem;font-weight:800;letter-spacing:.18em;
+  color:rgba(255,255,255,.5);font-variant-numeric:tabular-nums}
+.rail-progress{height:1px;background:var(--ln-1);margin:clamp(20px,2.4vw,32px) var(--gut) 0;position:relative}
+.rail-progress i{display:block;position:absolute;left:0;top:0;height:100%;width:12%;background:#fff}
+.rail-scroller{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.rail-scroller::-webkit-scrollbar{display:none}
+.rail-scroller .rail-card{scroll-snap-align:center}
+
+/* capabilities ---------------------------------------------------------- */
+.cap-row{border-top:1px solid var(--ln-1)}
+.cap-row:last-child{border-bottom:1px solid var(--ln-1)}
+.cap-btn{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;
+  gap:clamp(16px,2.4vw,40px);padding:clamp(20px,2.8vw,34px) 0;text-align:left;transition:padding-left .5s var(--e-out)}
+.cap-btn:hover{padding-left:12px}
+.cap-n{font-size:.6rem;font-weight:800;letter-spacing:.18em;color:var(--t-faint);font-variant-numeric:tabular-nums}
+.cap-t{font-size:clamp(1.4rem,3.2vw,2.6rem);font-weight:700;letter-spacing:-.035em;color:var(--t-faint);
+  transition:color .4s var(--e-out)}
+.cap-btn:hover .cap-t,.cap-btn[aria-expanded="true"] .cap-t{color:#fff}
+.cap-c{font-size:.54rem;font-weight:800;letter-spacing:.2em;color:var(--t-faint);font-variant-numeric:tabular-nums}
+.cap-panel{overflow:hidden;height:0;transition:height .55s var(--e-out)}
+.cap-panel > div{padding-bottom:clamp(22px,3vw,34px);padding-left:clamp(28px,5vw,74px);display:flex;flex-wrap:wrap;gap:7px}
+
+/* organisations --------------------------------------------------------- */
+.orgs{border-block:1px solid var(--ln-1);display:flex;flex-direction:column;gap:1px;background:var(--ln-1)}
+.orgs .marquee{background:var(--ink-000);padding-block:10px}
+
+/* principles ------------------------------------------------------------ */
+.pr-stage{position:relative;min-height:clamp(230px,28vw,310px)}
+.pr-slide{position:absolute;inset:0;opacity:0;transform:translateY(16px);pointer-events:none;
+  transition:opacity .6s var(--e-out),transform .7s var(--e-out)}
+.pr-slide.on{opacity:1;transform:none;pointer-events:auto}
+.pr-q{font-size:clamp(1.3rem,3vw,2.5rem);font-weight:200;line-height:1.32;letter-spacing:-.03em;color:#fff;max-width:26ch}
+.pr-attr{margin-top:clamp(20px,2.6vw,32px);display:flex;flex-direction:column;gap:5px}
+.pr-name{font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--t-mid)}
+.pr-role{font-size:.54rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t-faint)}
+.pr-bar{display:flex;align-items:center;gap:16px;margin-top:clamp(26px,3.4vw,40px)}
+.pr-dots{display:flex;gap:8px;flex:1}
+.pr-dot{width:26px;height:1px;background:var(--ln-2);transition:background .4s}
+.pr-dot[aria-selected="true"]{background:#fff}
+.pr-arr{width:42px;height:42px;border:1px solid var(--ln-2);color:var(--t-mid);display:grid;place-items:center;
+  transition:background .3s,color .3s,border-color .3s}
+.pr-arr:hover{background:#fff;color:var(--ink-000);border-color:#fff}
+
+/* contact --------------------------------------------------------------- */
+.ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(34px,6vw,90px);align-items:start}
+.ct-link{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--ln-1);
+  transition:padding-left .45s var(--e-out),color .35s;color:var(--t-mid);font-size:.94rem}
+.ct-link:hover{padding-left:12px;color:#fff}
+.ct-link .ic{width:34px;height:34px;flex:none;border:1px solid var(--ln-1);display:grid;place-items:center;
+  font-size:.7rem;color:var(--t-faint);transition:border-color .35s,color .35s}
+.ct-link:hover .ic{border-color:var(--ln-3);color:#fff}
+@media(max-width:860px){.ct-grid{grid-template-columns:1fr;gap:52px}}
+</style>
+
+<noscript>
+<style>
+/* Without JavaScript the galleries and generated sections cannot render, but
+   everything written into the HTML must still be readable. */
+.reveal,.line-reveal > *,.clip-reveal,.draw{opacity:1!important;transform:none!important;clip-path:none!important}
+#hEyebrow,#hSay,#hFacts,#hActions,#phEye,#phFoot,#dzEye,#dzFoot{opacity:1!important}
+#menu,#lightbox{display:none!important}
+#h-title .ln > span,#ph-title .ln > span,#dz-title .ln > span{transform:none!important}
+.t-outline{color:var(--t-max)!important;-webkit-text-stroke-color:transparent!important}
+#preload,.grain,#progress,#cur-dot,#cur-ring,#cur-label,#to-top{display:none!important}
+.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+.ab-pull .w{opacity:1!important;transform:none!important}
+.pr-slide{position:static!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.noscript-note{margin:0;padding:18px 0;border-top:1px solid var(--ln-2);border-bottom:1px solid var(--ln-2);
+  color:var(--t-soft);font-size:15px}
+.noscript-note a{color:var(--t-max)}
+</style>
+</noscript>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<div id="preload" role="status" aria-live="polite">
+  <div class="pl-mark">PRATIK<br/>SAHA</div>
+  <div class="pl-sub">Creative Portfolio</div>
+  <div class="pl-bar" aria-hidden="true"><i></i></div>
+  <span class="vh">Loading</span>
+</div>
+
+<header>
+<nav id="nav" aria-label="Primary">
+  <a href="#hero" class="nav-mark"><span class="badge" aria-hidden="true">PS</span>PRATIK SAHA</a>
+  <ul class="nav-links">
+    <li><a class="nav-link" href="#about" data-spy="about">About</a></li>
+    <li><a class="nav-link" href="#work" data-spy="work">Work</a></li>
+    <li><a class="nav-link" href="photography/">Photography</a></li>
+    <li><a class="nav-link" href="design/">Design</a></li>
+    <li><a class="nav-link" href="#experience" data-spy="experience">Experience</a></li>
+    <li><a class="nav-link" href="#contact" data-spy="contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta" data-magnetic="6"><span>Let's talk</span></a>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i>
+  </button>
+</nav>
+</header>
+
+<div id="menu" aria-label="Menu">
+  <ul class="m-list">
+    <li><a class="m-item" href="#about"><span class="n" aria-hidden="true">01</span>About</a></li>
+    <li><a class="m-item" href="#work"><span class="n" aria-hidden="true">02</span>Work</a></li>
+    <li><a class="m-item" href="photography/"><span class="n" aria-hidden="true">03</span>Photography</a></li>
+    <li><a class="m-item" href="design/"><span class="n" aria-hidden="true">04</span>Design</a></li>
+    <li><a class="m-item" href="#experience"><span class="n" aria-hidden="true">05</span>Experience</a></li>
+    <li><a class="m-item" href="#contact"><span class="n" aria-hidden="true">06</span>Contact</a></li>
+  </ul>
+  <div class="m-foot">
+    <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+    <a href="tel:+8801973828768">+880 1973 828 768</a>
+    <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</div>
+
+<main id="main">
+<noscript><div class="container"><p class="noscript-note">This site uses JavaScript to render the work archives. With it disabled you can still read everything here and reach Pratik at <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a> or <a href="tel:+8801973828768">+880 1973 828 768</a>.</p></div></noscript>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="h-title">
+  <div class="h-frame" aria-hidden="true">
+    <i class="v" style="left:25%"></i><i class="v" style="left:50%"></i><i class="v" style="left:75%"></i>
+    <i class="h" style="top:50%"></i>
+  </div>
+  <span class="h-corner" style="top:clamp(84px,11vh,118px);left:var(--gut)" aria-hidden="true">Portfolio — 2026</span>
+  <span class="h-corner" style="top:clamp(84px,11vh,118px);right:var(--gut)" aria-hidden="true">23&deg;N 90&deg;E — Dhaka</span>
+
+  <div class="h-inner">
+    <div>
+      <p class="h-eyebrow eyebrow" id="hEyebrow" style="opacity:0">Creative Director · Designer · Photographer</p>
+
+      <h1 id="h-title">
+        <span class="ln"><span>PRATIK</span></span>
+        <span class="ln"><span class="t-outline" id="hSaha">SAHA</span></span>
+      </h1>
+
+      <p class="h-say" id="hSay" style="opacity:0">Shaping stories through design, direction and photography.</p>
+
+      <div class="h-facts" id="hFacts" style="opacity:0">
+        <span class="h-fact"><b>Dhaka, Bangladesh</b></span>
+        <span class="h-fact"><span class="h-live" aria-hidden="true"></span>Available for selected projects</span>
+        <span class="h-fact">2026</span>
+      </div>
+
+      <div class="h-actions" id="hActions" style="opacity:0">
+        <a href="#work" class="button button--solid" data-magnetic="7"><span>View work <i class="arw" aria-hidden="true">&#8594;</i></span></a>
+        <a href="#contact" class="button button--line" data-magnetic="7"><span>Get in touch</span></a>
+      </div>
+    </div>
+
+    <div class="h-stack" id="hStack" aria-hidden="true">
+      <div class="h-stack__in" id="hStackIn">
+        <figure class="h-plate h-plate--back">
+          <img src="photography/assets/photography/concert/concert-10-thumb.jpg" alt="" width="768" height="1376" decoding="async"/>
+        </figure>
+        <figure class="h-plate h-plate--mid">
+          <img src="design/assets/design/static/static-09-thumb.jpg" alt="" width="640" height="800" decoding="async"/>
+          <figcaption class="h-plate__tag">Brand identity</figcaption>
+        </figure>
+        <figure class="h-plate h-plate--front">
+          <img src="photography/assets/photography/nature/nature-11-thumb.jpg" alt="" width="2752" height="1536" fetchpriority="high" decoding="async"/>
+          <figcaption class="h-plate__tag">Photography — hill tracts</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <span class="h-cue" aria-hidden="true"><i></i>Scroll</span>
+</section>
+
+<!-- ═══ DISCIPLINE MARQUEE ══════════════════════════════════════════════ -->
+<div class="marquee" style="--mq-dur:52s;border-bottom:1px solid var(--ln-1);padding-block:16px" aria-hidden="true">
+  <div class="marquee__track" id="mqDisciplines"></div>
+</div>
+
+<!-- ═══ STATEMENT ═══════════════════════════════════════════════════════ -->
+<section id="statement" aria-label="Creative philosophy">
+  <div class="container grid">
+    <p class="st-text reveal" style="grid-column:span 8">
+      <b>Every frame, every mark and every room</b> is a decision about what someone should feel first.
+    </p>
+    <div class="st-meta reveal" style="grid-column:span 4" data-d="2">
+      <span class="meta">Creative philosophy</span>
+      <span class="meta">Dhaka / Bangladesh</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 · ABOUT ══════════════════════════════════════════════════════ -->
+<section id="about" class="section" aria-labelledby="about-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">01 / About</span>
+      <h2 id="about-h" class="t-h2 line-reveal"><span>Design is leadership<br/>with a visual language.</span></h2>
+    </div>
+
+    <div class="ab-grid">
+      <div>
+        <blockquote class="ab-pull" id="abPull">I don't just design — I build worlds worth inhabiting.</blockquote>
+
+        <div class="reveal" data-d="1">
+          <p class="t-body">Born and raised in Dhaka, I grew up obsessed with how things look, feel and communicate. That obsession became a discipline spanning graphic design, photography, brand strategy, event direction and entrepreneurship.</p>
+          <p class="t-body">I've built organisations, led creative teams, directed large-scale events and crafted brand identities meant to outlast the campaign that introduced them. The work lives where art meets impact — and it speaks before I do.</p>
+          <p class="t-body">Currently based in Uttara, Dhaka, building toward an international creative practice.</p>
+        </div>
+
+        <ul class="tags reveal" data-d="2">
+          <li class="tag">Creative Direction</li><li class="tag">Brand Identity</li>
+          <li class="tag">Photography</li><li class="tag">UI / UX</li>
+          <li class="tag">Event Direction</li><li class="tag">Video</li>
+          <li class="tag">Entrepreneurship</li><li class="tag">Visual Storytelling</li>
+        </ul>
+      </div>
+
+      <div class="reveal" data-d="2">
+        <div class="stat">
+          <div><div class="stat__num" data-count="35">0</div><div class="stat__lbl">Photographs published</div></div>
+          <span class="stat__mark" aria-hidden="true">&#8594;</span>
+        </div>
+        <div class="stat">
+          <div><div class="stat__num" data-count="18">0</div><div class="stat__lbl">Design &amp; motion pieces</div></div>
+          <span class="stat__mark" aria-hidden="true">&#8594;</span>
+        </div>
+        <div class="stat">
+          <div><div class="stat__num" data-count="15">0</div><div class="stat__lbl">Organisations &amp; brands</div></div>
+          <span class="stat__mark" aria-hidden="true">&#8594;</span>
+        </div>
+        <div class="stat">
+          <div><div class="stat__num">&#8734;</div><div class="stat__lbl">Vision</div></div>
+          <span class="stat__mark" aria-hidden="true">&#8594;</span>
+        </div>
+
+        <dl class="ab-detail">
+          <dt>Based in</dt><dd>Uttara, Dhaka — 1230</dd>
+          <dt>Email</dt><dd><a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a></dd>
+          <dt>Available for</dt><dd>Freelance · Collaborations · Full-time</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 · EXPERIENCE ═════════════════════════════════════════════════ -->
+<section id="experience" class="section" style="background:var(--ink-100);border-block:1px solid var(--ln-1)" aria-labelledby="exp-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">02 / Experience</span>
+      <h2 id="exp-h" class="t-h2 line-reveal"><span>Built through action.</span></h2>
+    </div>
+    <ol id="timeline"></ol>
+  </div>
+</section>
+
+<!-- ═══ 03 · SELECTED WORK ══════════════════════════════════════════════ -->
+<section id="work" class="section" aria-labelledby="work-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">03 / Selected work</span>
+      <div>
+        <h2 id="work-h" class="t-h2 line-reveal"><span>A curated exhibition.</span></h2>
+        <p class="t-lead reveal" data-d="1" style="margin-top:22px;max-width:46ch">Six pieces that show the range — a cinematic edit, two brand systems, a campaign and two photographic series.</p>
+      </div>
+    </div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<!-- ═══ FEATURED RAIL ═══════════════════════════════════════════════════ -->
+<section id="rail" aria-labelledby="rail-h">
+  <div class="container" style="padding-block:clamp(56px,8vh,110px) clamp(26px,3.4vw,44px)">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="sec-idx">Archive</span>
+      <div>
+        <h2 id="rail-h" class="t-h2 line-reveal"><span>Frames in passing.</span></h2>
+        <p class="t-lead reveal" data-d="1" style="margin-top:18px;max-width:40ch">Eight pieces from across the archive. Keep scrolling.</p>
+      </div>
+    </div>
+  </div>
+  <div id="railPin">
+    <div class="rail-track" id="railTrack"></div>
+  </div>
+  <div class="rail-progress" aria-hidden="true"><i id="railBar"></i></div>
+  <div style="height:clamp(40px,6vh,80px)"></div>
+</section>
+
+<!-- ═══ 04 · PHOTOGRAPHY ════════════════════════════════════════════════ -->
+<section id="photography" class="section" aria-labelledby="ph-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">04 / Photography</span>
+      <div class="disc-head" style="flex:1">
+        <div>
+          <h2 id="ph-h" class="t-h2 line-reveal"><span>The art of seeing.</span></h2>
+          <p class="t-lead reveal" data-d="1" style="margin-top:20px;max-width:44ch">Cinematic landscape and live performance work — rivers and hill tracts by day, stages lit for one night only.</p>
+        </div>
+        <span class="disc-count reveal" data-d="2" id="phCount"></span>
+      </div>
+    </div>
+    <div class="split" id="phSplit"></div>
+    <div class="reveal" data-d="2" style="display:flex;justify-content:center;margin-top:clamp(30px,4vw,52px)">
+      <a href="photography/" class="button button--line" data-magnetic="7">
+        <span>Open the photography archive <i class="arw" aria-hidden="true">&#8594;</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 05 · DESIGN ═════════════════════════════════════════════════════ -->
+<section id="design" class="section" style="background:var(--ink-100);border-block:1px solid var(--ln-1)" aria-labelledby="dz-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">05 / Design</span>
+      <div class="disc-head" style="flex:1">
+        <div>
+          <h2 id="dz-h" class="t-h2 line-reveal"><span>Visual identity.</span></h2>
+          <p class="t-lead reveal" data-d="1" style="margin-top:20px;max-width:44ch">Brand systems, campaign design and motion work for events, sports clubs, hospitality and cultural programmes.</p>
+        </div>
+        <span class="disc-count reveal" data-d="2" id="dzCount"></span>
+      </div>
+    </div>
+    <div class="split" id="dzSplit"></div>
+    <div class="reveal" data-d="2" style="display:flex;justify-content:center;margin-top:clamp(30px,4vw,52px)">
+      <a href="design/" class="button button--line" data-magnetic="7">
+        <span>Open the design archive <i class="arw" aria-hidden="true">&#8594;</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 06 · CAPABILITIES ═══════════════════════════════════════════════ -->
+<section id="capabilities" class="section" aria-labelledby="cap-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">06 / Capabilities</span>
+      <h2 id="cap-h" class="t-h2 line-reveal"><span>The full spectrum.</span></h2>
+    </div>
+    <div id="capList"></div>
+  </div>
+</section>
+
+<!-- ═══ 07 · ORGANISATIONS ══════════════════════════════════════════════ -->
+<section id="organisations" class="section" style="padding-bottom:0" aria-labelledby="org-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">07 / Organisations</span>
+      <div>
+        <h2 id="org-h" class="t-h2 line-reveal"><span>Organisations &amp;<br/>associations.</span></h2>
+        <p class="t-lead reveal" data-d="1" style="margin-top:20px;max-width:42ch">Brands, clubs and communities I've made work for or been part of.</p>
+      </div>
+    </div>
+  </div>
+  <div class="orgs" style="margin-top:clamp(30px,4vw,54px)">
+    <div class="marquee" style="--mq-dur:64s"><div class="marquee__track" id="orgTrack1"></div></div>
+    <div class="marquee" style="--mq-dur:76s"><div class="marquee__track reverse" id="orgTrack2"></div></div>
+  </div>
+</section>
+
+<!-- ═══ 08 · PRINCIPLES ═════════════════════════════════════════════════ -->
+<section id="principles" class="section" aria-labelledby="pr-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">08 / Principles</span>
+      <h2 id="pr-h" class="t-h2 line-reveal"><span>How I work.</span></h2>
+    </div>
+    <div class="reveal" data-d="1">
+      <div class="pr-stage" id="prStage" aria-live="polite"></div>
+      <div class="pr-bar">
+        <button class="pr-arr" id="prPrev" aria-label="Previous principle">&#8592;</button>
+        <div class="pr-dots" id="prDots" role="tablist" aria-label="Principles"></div>
+        <button class="pr-arr" id="prNext" aria-label="Next principle">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 09 · FAQ ════════════════════════════════════════════════════════ -->
+<section id="faq" class="section" style="background:var(--ink-100);border-block:1px solid var(--ln-1)" aria-labelledby="faq-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">09 / Questions</span>
+      <h2 id="faq-h" class="t-h2 line-reveal"><span>Questions, answered.</span></h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- ═══ 10 · CONTACT ════════════════════════════════════════════════════ -->
+<section id="contact" class="section" aria-labelledby="ct-h">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-idx">10 / Contact</span>
+      <span aria-hidden="true"></span>
+    </div>
+
+    <div class="ct-grid">
+      <div>
+        <h2 id="ct-h" class="t-h2 line-reveal"><span>Let's build<br/>something exceptional.</span></h2>
+        <p class="t-lead reveal" data-d="1" style="margin:26px 0 clamp(30px,4vw,48px);max-width:40ch">
+          Open to brand projects, photography commissions, creative collaborations, and conversations about ideas worth building.
+        </p>
+
+        <div class="reveal" data-d="2">
+          <a class="ct-link" href="mailto:studios.pratik@gmail.com">
+            <span class="ic" aria-hidden="true">&#9993;</span>studios.pratik@gmail.com
+          </a>
+          <a class="ct-link" href="tel:+8801973828768">
+            <span class="ic" aria-hidden="true">&#9742;</span>+880 1973 828 768
+          </a>
+          <a class="ct-link" href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">
+            <span class="ic" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>@_pratiksahaa_ on Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal" data-d="2">
+        <form id="contactForm" novalidate>
+          <div class="field" data-field="name">
+            <label for="cf-name">Your name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name"/>
+            <span class="err" id="err-name">Enter your name so I know who I'm replying to.</span>
+          </div>
+          <div class="field" data-field="email">
+            <label for="cf-email">Email address</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="err-email"/>
+            <span class="err" id="err-email">That email address doesn't look complete — check it and try again.</span>
+          </div>
+          <div class="field" data-field="subject">
+            <label for="cf-subject">Subject</label>
+            <input id="cf-subject" name="subject" type="text" autocomplete="off" required aria-describedby="err-subject"/>
+            <span class="err" id="err-subject">Add a subject line so the message lands in the right place.</span>
+          </div>
+          <div class="field" data-field="message">
+            <label for="cf-message">Message</label>
+            <span class="count" id="cf-count" aria-hidden="true">0 / 800</span>
+            <textarea id="cf-message" name="message" rows="5" required minlength="20" maxlength="800" aria-describedby="err-message"></textarea>
+            <span class="err" id="err-message">Tell me a little more — at least 20 characters.</span>
+          </div>
+
+          <button type="submit" class="button button--solid" style="width:100%" data-magnetic="4">
+            <span>Open in my email app <i class="arw" aria-hidden="true">&#8594;</i></span>
+          </button>
+
+          <div class="form-note ok" id="formOk" role="status" hidden>
+            <span class="ic" aria-hidden="true">&#10003;</span>
+            <span>Your email app should be opening with the message ready to send. If nothing happened, email
+              <a href="mailto:studios.pratik@gmail.com" style="text-decoration:underline;text-underline-offset:3px">studios.pratik@gmail.com</a> directly.</span>
+          </div>
+          <div class="form-note bad" id="formBad" role="alert" hidden>
+            <span class="ic" aria-hidden="true">!</span>
+            <span id="formBadText">Check the highlighted fields and try again.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="container">
+    <p class="foot-word" aria-hidden="true">PRATIK SAHA</p>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h3>Navigate</h3>
+        <a href="#about">About Pratik</a>
+        <a href="#work">Selected work</a>
+        <a href="#experience">Experience</a>
+        <a href="#faq">Questions</a>
+      </div>
+      <div class="foot-col">
+        <h3>Portfolios</h3>
+        <a href="photography/">Photography archive</a>
+        <a href="design/">Design &amp; motion archive</a>
+        <a href="#capabilities">Capabilities</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+        <a href="tel:+8801973828768">+880 1973 828 768</a>
+        <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h3>Studio</h3>
+        <p>Uttara, Dhaka — 1230</p>
+        <p>Bangladesh</p>
+        <p>Creative direction / design / photography</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; 2026 Pratik Saha — All rights reserved</p>
+      <p>Dhaka / Bangladesh</p>
+    </div>
+  </div>
+</footer>
+
+<button id="to-top" aria-label="Back to top">&#8593;</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://pratiksahaa.vercel.app/#pratik",
+      "name":"Pratik Saha",
+      "url":"https://pratiksahaa.vercel.app/",
+      "jobTitle":["Creative Director","Graphic Designer","Photographer"],
+      "description":"Creative director, designer and photographer based in Dhaka, Bangladesh, working across brand identity, campaign design, event direction and editorial photography.",
+      "email":"mailto:studios.pratik@gmail.com",
+      "telephone":"+8801973828768",
+      "address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressRegion":"Dhaka Division","addressCountry":"BD"},
+      "sameAs":["https://www.instagram.com/_pratiksahaa_/"],
+      "knowsAbout":["Creative Direction","Brand Identity","Graphic Design","Photography","Concert Photography","Event Direction","Video Editing","UI/UX Design","Visual Storytelling"]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://pratiksahaa.vercel.app/#website",
+      "url":"https://pratiksahaa.vercel.app/",
+      "name":"Pratik Saha — Creative Portfolio",
+      "inLanguage":"en",
+      "publisher":{"@id":"https://pratiksahaa.vercel.app/#pratik"}
+    },
+    {
+      "@type":"ProfilePage",
+      "@id":"https://pratiksahaa.vercel.app/#page",
+      "url":"https://pratiksahaa.vercel.app/",
+      "name":"Pratik Saha — Creative Director, Designer & Photographer in Dhaka",
+      "isPartOf":{"@id":"https://pratiksahaa.vercel.app/#website"},
+      "about":{"@id":"https://pratiksahaa.vercel.app/#pratik"}
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="faqSchema"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="assets/js/data.js" defer></script>
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/home.js" defer></script>
+</body>
+</html>

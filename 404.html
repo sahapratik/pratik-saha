@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+
+<title>Page not found — Pratik Saha</title>
+<meta name="description" content="That page is not part of the archive. Head back to the portfolio of Pratik Saha — creative director, designer and photographer in Dhaka, Bangladesh."/>
+<meta name="robots" content="noindex,follow"/>
+<meta name="author" content="Pratik Saha"/>
+<meta name="theme-color" content="#050505"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Page not found — Pratik Saha"/>
+<meta property="og:description" content="That page is not part of the archive."/>
+<meta property="og:url" content="https://pratiksahaa.vercel.app/"/>
+<meta property="og:image" content="https://pratiksahaa.vercel.app/assets/brand/og-home.jpg"/>
+<meta property="og:site_name" content="Pratik Saha"/>
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="alternate icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/core.css"/>
+
+<style>
+/* ── 404 ──────────────────────────────────────────────────────────────── */
+#lost{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  padding-block:clamp(120px,18vh,190px) clamp(60px,10vh,120px)}
+
+/* barely-there structural grid, per the site's art direction */
+.lost-grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--ln-1) 1px,transparent 1px);
+  background-size:calc(100% / 6) 100%;
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 20%,transparent 78%);
+  mask-image:radial-gradient(120% 90% at 50% 45%,#000 20%,transparent 78%)}
+.lost-grid::after{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(to bottom,var(--ln-1) 1px,transparent 1px);
+  background-size:100% clamp(90px,12vh,140px)}
+
+.lost-in{position:relative;z-index:2;width:100%}
+.lost-num{font-size:clamp(7rem,30vw,25rem);font-weight:900;line-height:.78;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.42);
+  transform:translate3d(0,0,0);will-change:transform;margin:0 0 clamp(20px,4vh,40px)}
+.lost-num em{font-style:normal;display:inline-block;transition:color .6s var(--e-out)}
+.lost-num em.mid{color:var(--t-max);-webkit-text-stroke:0}
+.lost-head{max-width:24ch}
+.lost-h{font-size:clamp(1.7rem,4.4vw,3.4rem);font-weight:800;letter-spacing:-.035em;line-height:1.02;
+  color:var(--t-max);margin:0 0 18px}
+.lost-p{color:var(--t-soft);max-width:48ch;margin:0 0 clamp(28px,5vh,44px)}
+.lost-cta{display:flex;flex-wrap:wrap;gap:14px}
+
+.lost-coord{position:absolute;left:0;right:0;bottom:clamp(24px,5vh,46px);z-index:2}
+.coord-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
+  padding-top:18px;border-top:1px solid var(--ln-2)}
+.coord-row span{font-family:inherit;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--t-dim)}
+.coord-row b{color:var(--t-soft);font-weight:500;font-variant-numeric:tabular-nums}
+
+@media (max-width:640px){
+  .lost-num{-webkit-text-stroke-width:.8px}
+  .coord-row span:nth-child(3){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .lost-num{transform:none!important}
+  .lost-grid{display:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header>
+<nav id="nav" aria-label="Primary">
+  <a href="/" class="nav-mark"><span class="badge" aria-hidden="true">PS</span>PRATIK SAHA<span class="sub">Error 404</span></a>
+  <ul class="nav-links">
+    <li><a class="nav-link" href="/#about">About</a></li>
+    <li><a class="nav-link" href="/#work">Work</a></li>
+    <li><a class="nav-link" href="/photography/">Photography</a></li>
+    <li><a class="nav-link" href="/design/">Design</a></li>
+    <li><a class="nav-link" href="/#experience">Experience</a></li>
+    <li><a class="nav-link" href="/#contact">Contact</a></li>
+  </ul>
+  <a href="/#contact" class="nav-cta" data-magnetic="6"><span>Let's talk</span></a>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <i aria-hidden="true"></i><i aria-hidden="true"></i>
+  </button>
+</nav>
+</header>
+
+<div id="menu" aria-label="Menu">
+  <ul class="m-list">
+    <li><a class="m-item" href="/"><span class="n" aria-hidden="true">01</span>Home</a></li>
+    <li><a class="m-item" href="/#work"><span class="n" aria-hidden="true">02</span>Work</a></li>
+    <li><a class="m-item" href="/photography/"><span class="n" aria-hidden="true">03</span>Photography</a></li>
+    <li><a class="m-item" href="/design/"><span class="n" aria-hidden="true">04</span>Design</a></li>
+    <li><a class="m-item" href="/#experience"><span class="n" aria-hidden="true">05</span>Experience</a></li>
+    <li><a class="m-item" href="/#contact"><span class="n" aria-hidden="true">06</span>Contact</a></li>
+  </ul>
+  <div class="m-foot">
+    <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+    <a href="tel:+8801973828768">+880 1973 828 768</a>
+    <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</div>
+
+<main id="main">
+<section id="lost">
+  <div class="lost-grid" aria-hidden="true"></div>
+  <div class="container lost-in">
+    <p class="eyebrow">Error / 404</p>
+    <h1 class="lost-num" id="lostNum" aria-label="404">
+      <em>4</em><em class="mid">0</em><em>4</em>
+    </h1>
+    <div class="lost-head">
+      <p class="lost-h">You seem to have wandered off the grid.</p>
+    </div>
+    <p class="lost-p t-body">This page isn't part of the archive — it may have been moved, renamed, or never existed. The work is all still here.</p>
+    <div class="lost-cta">
+      <a class="button button--solid" href="/" data-magnetic="7"><span>Back home</span><i aria-hidden="true">&#8594;</i></a>
+      <a class="button button--line" href="/#work" data-magnetic="5"><span>View work</span><i aria-hidden="true">&#8594;</i></a>
+    </div>
+  </div>
+
+  <div class="container lost-coord" aria-hidden="true">
+    <div class="coord-row">
+      <span>Status <b>404</b></span>
+      <span>Location <b id="lostPath">/</b></span>
+      <span>Coords <b id="lostXY">00.00 / 00.00</b></span>
+      <span>Dhaka <b>23.87° N, 90.40° E</b></span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="container">
+    <p class="foot-word" aria-hidden="true">PRATIK SAHA</p>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h3>Navigate</h3>
+        <a href="/#about">About Pratik</a>
+        <a href="/#work">Selected work</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#faq">Questions</a>
+      </div>
+      <div class="foot-col">
+        <h3>Portfolios</h3>
+        <a href="/photography/">Photography archive</a>
+        <a href="/design/">Design &amp; motion archive</a>
+        <a href="/#capabilities">Capabilities</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="mailto:studios.pratik@gmail.com">studios.pratik@gmail.com</a>
+        <a href="tel:+8801973828768">+880 1973 828 768</a>
+        <a href="https://www.instagram.com/_pratiksahaa_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h3>Studio</h3>
+        <p>Uttara, Dhaka — 1230</p>
+        <p>Bangladesh</p>
+        <p>Creative direction / design / photography</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; 2026 Pratik Saha — All rights reserved</p>
+      <p>Dhaka / Bangladesh</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/data.js" defer></script>
+<script src="/assets/js/core.js" defer></script>
+<script>
+/* Lightweight, page-local: the 404 numerals drift with the pointer and the
+   coordinate readout reports the requested path. No libraries needed here. */
+document.addEventListener('DOMContentLoaded', function () {
+  var path = document.getElementById('lostPath');
+  if (path) path.textContent = (location.pathname || '/').slice(0, 42);
+
+  var num = document.getElementById('lostNum');
+  var xy = document.getElementById('lostXY');
+  if (!num) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+
+  function loop() {
+    cx += (tx - cx) * 0.07;
+    cy += (ty - cy) * 0.07;
+    num.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)';
+    if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) raf = requestAnimationFrame(loop);
+    else raf = null;
+  }
+
+  document.addEventListener('pointermove', function (e) {
+    var nx = (e.clientX / window.innerWidth) * 2 - 1;
+    var ny = (e.clientY / window.innerHeight) * 2 - 1;
+    tx = nx * 22;
+    ty = ny * 14;
+    if (xy) {
+      xy.textContent = (nx >= 0 ? '+' : '') + nx.toFixed(2) + ' / ' + (ny >= 0 ? '+' : '') + ny.toFixed(2);
+    }
+    if (!raf) raf = requestAnimationFrame(loop);
+  }, { passive: true });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "Pratik Saha — Creative Director, Designer & Photographer",
+  "short_name": "Pratik Saha",
+  "description": "Portfolio of Pratik Saha — creative direction, brand design and photography from Dhaka, Bangladesh.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "lang": "en",
+  "categories": ["design", "photography", "portfolio"],
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/assets/brand/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "/assets/brand/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "/assets/brand/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
